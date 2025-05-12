@@ -30,50 +30,73 @@
   <body>
     <!-- nav -->
     <nav>
-      <ul class="justify-content-start align-items-center p-4">
-        <li class="px-4">
-          <img
-            width="90px"
-            src="https://cdn.pozible.com/staticImages/logo.png"
-            alt=""
-            srcset=""
-          />
-        </li>
-        <li><a href="./explore.html" class="active">Explore</a></li>
-        <ul class="ms-auto justify-content-around px-4">
-          <li class="px-5">
-            <a href=""> <i class="fa-solid fa-magnifying-glass"></i> Search </a>
+      <div class="container-fluid">
+        <ul class="py-4 px-2 justify-content-start align-items-center">
+          <li class="px-4">
+            <img
+              width="90px"
+              src="https://cdn.pozible.com/staticImages/logo.png"
+              alt=""
+              srcset=""
+            />
           </li>
-          <li><a href=""> Dashboard </a></li>
-          <li>
-            <menu class="d-none">
-              <ul class="justify-content-center align-items-center p-4">
-                <li>
-                  <img
-                    width="90px"
-                    src="https://cdn.pozible.com/staticImages/logo.png"
-                    alt=""
-                    srcset=""
-                  />
-                </li>
-                <li><a href="./explore.html">Explore</a></li>
-
-                <li>
-                  <a href="">
-                    <i class="fa-solid fa-magnifying-glass"></i> Search
-                  </a>
-                </li>
-                <li><a href=""> Dashboard </a></li>
-              </ul>
-            </menu>
-          </li>
+          <li><a href="./explore.html" class="active">Explore</a></li>
+          <ul class="ms-auto justify-content-around px-4">
+            <li class="px-5">
+              <a href="">
+                <i class="fa-solid fa-magnifying-glass"></i> Search
+              </a>
+            </li>
+            <li><a href=""> Dashboard </a></li>
+            <li>
+              <menu class="d-none">
+                <ul class="justify-content-center align-items-center p-4">
+                  <li>
+                    <img
+                      width="90px"
+                      src="https://cdn.pozible.com/staticImages/logo.png"
+                      alt=""
+                      srcset=""
+                    />
+                  </li>
+                  <li><a href="./explore.html">Explore</a></li>
+                  <li>
+                    <a href="">
+                      <i class="fa-solid fa-magnifying-glass"></i> Search
+                    </a>
+                  </li>
+                  <li><a href=""> Dashboard </a></li>
+                </ul>
+              </menu>
+            </li>
+          </ul>
         </ul>
-      </ul>
+      </div>
     </nav>
     <!-- /nav -->
     <!-- Filtering -->
     <section id="Filtering">
-      <div class="container-fluid"></div>
+      <div class="container-fluid row p-2">
+        <div class="col-12 col-md-8"></div>
+        <div class="col-12 col-md-4">
+          <div class="selectWrapper d-flex justify-content-around">
+            <select
+              name="view"
+              class="HTML5Select__Select-sc-1qbbcbd-0 mx-2 eYzCKv"
+            >
+              <option value="all">All Projects</option>
+              <option value="trending">Trending</option>
+              <option value="ending_soon">Ending Soon</option>
+              <option value="newest">Newest</option>
+              <option value="recently_successful">Recently Successful</option>
+              <option value="waitlists">Waitlists</option>
+            </select>
+            <div class="reset">
+              <i class="fa fa-refresh" aria-hidden="true">reset</i>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- /Filtering -->
 
