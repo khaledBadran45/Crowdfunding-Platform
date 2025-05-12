@@ -14,7 +14,6 @@
   --color-green-45: #04c86d;
   --color-green-5: #def8eb;
   --color-green-1: #eefbf5;
-  --color-neutral-110: #0e0f1b;
   --color-neutral-100: #1c1d36;
   --color-neutral-80: #373b6c;
   --color-neutral-70: #454a87;
@@ -27,7 +26,6 @@
   --color-neutral-5: #e4e5f1;
   --color-neutral-1: #f8f8fc;
   --color-neutral-0: #ffffff;
-  --color-purple-100: #190849;
   --color-purple-70: #3f14b8;
   --color-purple-50: #6435e9;
   --color-purple-45: #7247eb;
@@ -47,5 +45,9 @@
   --color-teal-10: #c8f9f2;
   --color-teal-5: #dafbf6;
   --color-teal-1: #edfdfb;
+
+  --color-active-color: #190849;
+  --color-secondColor: #0e0f1b;
+
   --color-primaryColor: #0c6e61;
 }
