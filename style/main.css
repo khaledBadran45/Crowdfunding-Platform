@@ -24,6 +24,11 @@ nav {
     }
   }
 }
+#Filtering {
+  background-color: var(--color-filterColor);
+  width: 100%;
+  height: 30vh;
+}
 /* @media all and (max-width: 768px) {
   nav {
     ul {
