@@ -2,11 +2,12 @@ nav {
   background-color: var(--color-primaryColor);
   ul {
     list-style: none;
+    display: flex;
     li {
       cursor: pointer;
-      letter-spacing: 1px;
       padding: 0.3em;
       a {
+        letter-spacing: 0.3px;
         font-weight: 700;
         transition: all 0.3s;
         font-size: 14px;
@@ -14,7 +15,7 @@ nav {
         border-radius: 6px;
         &:hover {
           background-color: white;
-          color: #000;
+          color: var(--color-secondColor);
         }
         &.active {
           color: var(--color-active-color);
@@ -23,3 +24,13 @@ nav {
     }
   }
 }
+/* @media all and (max-width: 768px) {
+  nav {
+    ul {
+      display: none !important;
+    }
+  }
+  nav menu {
+    display: block;
+  }
+} */
