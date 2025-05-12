@@ -4,18 +4,21 @@
   box-sizing: border-box;
 }
 body {
-  color: #6e6e6e;
+  color: #fff;
   font-family: Nunito, sans-serif;
   font-size: 16px;
   text-transform: capitalize;
   font-weight: 400;
   -webkit-touch-callout: none;
 }
+a {
+  text-decoration: none;
+  color: #fff;
+}
 nav {
   background-color: var(--color-primaryColor);
   ul {
     list-style: none;
-    color: #fff;
     li {
       cursor: pointer;
       font-weight: 700;
