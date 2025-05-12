@@ -12,6 +12,7 @@ body {
   -webkit-touch-callout: none;
 }
 a {
+  outline: none;
   text-decoration: none;
   color: #fff;
 }
