@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  color: #6e6e6e;
+  font-family: Nunito, sans-serif;
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: 400;
+  -webkit-touch-callout: none;
+}
+nav {
+  background-color: var(--color-primaryColor);
+  ul {
+    list-style: none;
+    color: #fff;
+    li {
+      cursor: pointer;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+  }
+}
