@@ -1,0 +1,24 @@
+{
+  "name": "crowdfunding-platform",
+  "version": "1.0.0",
+  "description": "Crowdfunding Platform\r Create a full stack crowdfunding platform using HTML, CSS, JavaScript,\r and JSON Server to simulate REST API functionality to enable campaign\r Creators to launch campaigns, Backers to pledge support, and Admins to\r moderate content. Core features include role-based access, campaign\r management, real-time data interactions, and mock payment flows.\r Deadline (21-05-2025)\r Requirements\r 1. Admin (40%)\r Backend Interaction: Manage data using the admin dashboard.\r Key Features:\r - User Management:\r  - Approve/reject `Campaigner` role requests (stored in `users[]`).\r  - Ban users by setting `isActive: false` in `users[]`.\r - Campaign Moderation:\r  - Approve/reject campaigns (update `isApproved: true` in `campaigns[]`).\r  - Delete campaigns violating guidelines.\r - Data Access:\r  - View all users, campaigns, and pledges in `db.json`.\r ---\r 2. Campaigner (35%)\r Frontend Interaction: Use JavaScript `fetch()` to communicate with JSON Server.\r Key Features:\r - Campaign Creation:\r  - POST new campaigns to `/campaigns` (fields: `title`, `description`, `goal`, `deadline`,\r `rewards[]`).\r  - Upload images via Base64 encoding (stored as strings in `campaigns[]`).\r - Campaign Updates:\r  - PATCH campaign details (e.g., `deadline`, `rewards`) using `campaigns/:id`.\r  - GET pledge data from `/pledges?campaignId=:id`.\r - Communication:\r  - POST updates to `/updates` (linked to `campaignId`).\r ---\r 3. Backer (20%)\r Frontend Interaction: Browse campaigns and pledge via forms.\r Key Features:\r - Account Management:\r  - Register/login via POST to `/users` (role: `backer`).\r  - View pledge history (`GET /pledges?userId=:id`).\r - Campaign Interaction:\r  - Filter campaigns using `GET /campaigns?category=:category&_sort=deadline`.\r  - Submit pledges via POST to `/pledges` (fields: `amount`, `rewardId`, `campaignId`,\r `userId`).\r ---\r 4. Anonymous User (5%)\r Access: Read-only mode (no authentication required).\r Features:\r - Browse campaigns: `GET /campaigns?isApproved=true`.\r - Search campaigns using URL query params (e.g., `GET /campaigns?q=music`).\r ---\r Technology Stack\r Frontend: HTML, Bootstrap OR Sass (BONUS), and JavaScript (ES6+)\r Backend\r - JSON Server:\r  - Simulate a REST API with `db.json`.\r  - Routes: `/users`, `/campaigns`, `/pledges`, `/updates`.\r Database Schema (db.json)\r ```json\r {\r  \"users\": [\r  {\r  \"id\": 1,\r  \"name\": \"Jane Doe\",\r  \"role\": \"campaigner\",\r  \"isActive\": true,\r  \"email\": \"jane@example.com\",\r  \"password\": \"hashed_password\"\r  }\r  ],\r  \"campaigns\": [\r  {\r  \"id\": 1,\r  \"title\": \"Smart Watch\",\r  \"creatorId\": 1,\r  \"goal\": 5000,\r  \"deadline\": \"2024-12-31\",\r  \"isApproved\": false,\r  \"rewards\": [\r  { \"id\": 1, \"title\": \"Early Bird\", \"amount\": 50 }\r  ]\r  }\r  ],\r  \"pledges\": [\r  {\r  \"id\": 1,\r  \"campaignId\": 1,\r  \"userId\": 2,\r  \"amount\": 100,\r  \"rewardId\": 1\r  }\r  ]\r }\r ```\r ---\r Key Adjustments\r - Payments: Mock payment flow with a confirmation dialog (no real money processing).\r ---\r Inspiration websites:\r - https://www.gofundme.com\r - https://www.kickstarter.com\r - https://www.crowdfunding.com",
+  "homepage": "https://github.com/khaledBadran45/Crowdfunding-Platform#readme",
+  "bugs": {
+    "url": "https://github.com/khaledBadran45/Crowdfunding-Platform/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khaledBadran45/Crowdfunding-Platform.git"
+  },
+  "license": "ISC",
+  "author": "khaled",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "json-server": "^1.0.0-beta.3"
+  }
+}
