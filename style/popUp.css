@@ -19,6 +19,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  justify-content: space-around;
   background-color: #ffffff;
   height: 90vh;
   border-radius: 8px;
@@ -35,7 +36,7 @@
 
 .inputForm {
   border: 1.5px solid #ecedec;
-  border-radius: 10px;
+  border-radius: 8px;
   height: 50px;
   display: flex;
   align-items: center;
@@ -54,9 +55,12 @@
   border: none;
   width: 85%;
   height: 100%;
-  padding: 0.5em;
+  padding: 0.1em;
 }
 
+.input::placeholder {
+  padding: 0.6em;
+}
 .input:focus {
   outline: none;
 }
@@ -88,9 +92,9 @@
 }
 
 .button-submit {
-  margin-block: 15px 0 10px 0;
+  /* margin-block: 15px 0 10px 0; */
   background-color: #151717;
-  padding: 0.7em;
+  /* padding: 0.7em; */
   border: none;
   color: white;
   font-size: 15px;
@@ -98,6 +102,7 @@
   border-radius: 10px;
   width: 100%;
   cursor: pointer;
+  padding: 0.7em !important ;
 }
 
 .button-submit:hover {
@@ -112,7 +117,7 @@
 }
 
 .btn {
-  width: 100%;
+  /* width: 100%; */
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -123,15 +128,15 @@
   background-color: white;
   cursor: pointer;
   transition: 0.2s ease-in-out;
-  padding: 1em;
 }
 
 .btn:hover {
   border: 1px solid #2d79f3;
 }
 
-.usernameMsg,
-.mailMsg,
-.passMsg{
+.Error_msg {
   display: none;
+}
+.Error_msg {
+  color: var(--color-errorColor);
 }

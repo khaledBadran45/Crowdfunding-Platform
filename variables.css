@@ -50,6 +50,7 @@
   --color-active-color: #190849;
   --color-secondColor: #0e0f1b;
   --color-primaryColor: #0c6e61;
+  --color-errorColor: rgb(155, 12, 12);
   --xs: 0;
   --sm: 576px;
   --md: 768px;

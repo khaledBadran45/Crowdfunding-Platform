@@ -1,6 +1,87 @@
 {
-  "users": [],
-  "campaigns": [],
-  "pledges": [],
-  "updates": []
+  "users": [
+    {
+      "id": "bb08"
+    },
+    {
+      "id": "314d"
+    },
+    {
+      "id": "58cb"
+    },
+    {
+      "id": "e2f8"
+    },
+    {
+      "id": "243f"
+    },
+    {
+      "id": "169c"
+    },
+    {
+      "id": "d14c",
+      "username": "younes",
+      "email": "kbadran842@gmail.com",
+      "password": "56556dsds",
+      "isActive": true
+    },
+    {
+      "id": "b967",
+      "username": "younes",
+      "email": "kbadran842@gmail.com",
+      "password": "15ds14d5s",
+      "isActive": true
+    },
+    {
+      "id": "ad28",
+      "username": "younes",
+      "email": "kbadran842@gmail.com",
+      "password": "2156555",
+      "isActive": true
+    },
+    {
+      "id": "f200",
+      "username": "younes",
+      "email": "kbadran842@gmail.com",
+      "password": "36d2s52d2",
+      "isActive": true
+    },
+    {
+      "id": "627b",
+      "username": "younes",
+      "email": "kbadran842@gmail.com",
+      "password": "2ds52d1s52",
+      "isActive": true
+    },
+    {
+      "id": "9fe0",
+      "username": "dsds",
+      "email": "kbadran842@gmail.com",
+      "password": "1d5145",
+      "isActive": true
+    },
+    {
+      "id": "0298",
+      "username": "dsds",
+      "email": "kbadran842@gmail.com",
+      "password": "1d5145",
+      "isActive": true
+    },
+    {
+      "id": "0cc7",
+      "username": "younes",
+      "email": "ksddsbadran842@gmail.com",
+      "password": "f5re65g41df",
+      "role": "admin",
+      "isActive": true
+    },
+    {
+      "id": "ee40",
+      "username": "khaled",
+      "email": "kbadraan842@gmail.com",
+      "password": "5fd5d5",
+      "role": "user",
+      "isActive": true
+    }
+  ]
 }

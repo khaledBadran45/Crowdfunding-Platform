@@ -1,4 +1,8 @@
 nav {
+  position: absolute;
+  right: 0;
+  left: 0;
+  width: 100%;
   background-color: var(--color-primaryColor);
   ul {
     list-style: none;
@@ -43,6 +47,12 @@ nav {
     width: 20%;
   }
 }
+.createBtn {
+  background-color: #7247eb;
+}
+.SupportBtn {
+  background-color: var(--color-primaryColor);
+}
 /* @media all and (max-width: 768px) {
   nav {
     ul {
@@ -53,3 +63,6 @@ nav {
     display: block;
   }
 } */
+input {
+  padding: 0.5em;
+}
