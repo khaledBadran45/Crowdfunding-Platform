@@ -1,0 +1,4 @@
+export class Campaigner {
+  constructor() {}
+  
+}
