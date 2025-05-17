@@ -134,3 +134,54 @@ i {
 #file {
   display: none;
 }
+
+#campaignCard {
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#campaignCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+#campaignTitle {
+  color: #4c51a4;
+  font-size: 1.25rem;
+}
+
+#campaignDescription {
+  font-size: 0.875rem;
+}
+
+#campaignProgress {
+  background-color: #28a745;
+}
+
+#campaignGoal,
+#campaignDeadline {
+  font-size: 0.8rem;
+}
+
+#campaignRewards ul {
+  padding-left: 0;
+}
+
+#campaignRewards ul li {
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+#campaignRewards h6 {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.editBtn {
+  color: #0e0f1b;
+  transition: all 0.5s;
+cursor: pointer;
+  &:hover {
+    color: #868ac1;
+  }
+}
