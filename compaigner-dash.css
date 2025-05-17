@@ -55,6 +55,14 @@ body {
 .btn-create-profile:hover {
   background-color: #565ba0;
 }
+input[name="createCopaignBtn"] {
+  background-color: #565ba0;
+  color: #fff;
+  &:focus {
+    color: #fff;
+    background-color: #565ba0;
+  }
+}
 i {
   font-size: 20px;
   padding-inline: 0.3em;
@@ -73,7 +81,7 @@ i {
 }
 
 .header {
-cursor: pointer;
+  cursor: pointer;
   flex: 1;
   width: 100%;
   border: 2px dashed #868ac1;
