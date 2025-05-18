@@ -110,6 +110,25 @@
       "rewards": [],
       "images": "dssdldlx",
       "isApproved": false
+    },
+    {
+      "id": "01ef",
+      "title": "حمله تبرعات",
+      "description": "عيل غلبان عاوز يتستر ونجوزوه",
+      "goal": "500000",
+      "deadline": "2025-05-31",
+      "rewards": [
+        {
+          "reward_Title": "reward 10%",
+          "limit": "20 $"
+        },
+        {
+          "reward_Title": "reward 20%",
+          "limit": "30 $"
+        }
+      ],
+      "images": [],
+      "isApproved": false
     }
   ]
 }

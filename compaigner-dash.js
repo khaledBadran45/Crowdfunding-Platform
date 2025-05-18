@@ -109,16 +109,148 @@ class Campaigner {
       </form>
   `;
   #compaigns = [];
-  #compaignDetailsUpdate = "";
+  #compaignDetailsUpdate = `<h2 class="text-capitalize text-dark-emphasis">
+            Update Compaign Details
+          </h2>
+          <div class="comapignData">
+            <div class="row justify-content-start align-content-center">
+              <!-- <div class="col-md-10 mx-auto">
+                  <div class="container">
+                    <label for="fileImages" class="header">
+                      <div class="wrapper w-100 text-center">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                          <g
+                            id="SVGRepo_tracerCarrier"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></g>
+                          <g id="SVGRepo_iconCarrier">
+                            <path
+                              d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24006 10.1959M12 12V21M12 12L15 15M12 12L9 15"
+                              stroke="#000000"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                          </g>
+                        </svg>
+                      </div>
+                      <p>Browse images to upload!</p>
+                    </label>
+                    <input id="fileImages" multiple class="d-none" type="file" />
+                  </div>
+              
+            </div> -->
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label for="title">title</label>
+                <input
+                  type="text"
+                  name="title"
+                  class="form-control"
+                  id="title"
+                />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label for="Description">Description</label>
+                <input
+                  type="text"
+                  name="Description"
+                  class="form-control"
+                  id="Description"
+                />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label for="deadline">deadline</label>
+                <input
+                  type="date"
+                  name="deadline"
+                  class="form-control"
+                  id="deadline"
+                />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label for="goal">goal</label>
+                <input
+                  type="text"
+                  name="goal"
+                  class="form-control"
+                  id="goal"
+                />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label for="news">compaign news</label>
+                <input
+                  type="text"
+                  name="news"
+                  class="form-control"
+                  id="news"
+                />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mt-4">
+                <input
+                  type="button"
+                  name="patch"
+                  value="patch"
+                  class="btn w-100 btn-primary ms-auto"
+                  id="patch"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="row compaignRow justify-content-start align-items-center"
+          ></div>
+        </div>`;
   #compaignNewsUpdate = "";
   #createCompaignForm;
   compaignImages = [];
   #compaignRewards = [];
   constructor() {
+    this.setupTheUpdateCampaigns();
+    // this.SetupTheCreationOfTheCompaign();
     // setup Upadtion copmaigns
     // patch the compaigns to the input
     // get the input then attach the compaigns
+    // Setup The Creation OF the Compaign
+  }
+  SetupTheCreationOfTheCompaign() {
+    this.#compaignRewards = [];
+    // console.log(this.#compaignRewards);
+    Campaigner.compaignImages = [];
+    // setUp Creation Page
+    document.querySelector(".mainContent").innerHTML = this.#createCompaignPage;
+    this.#createCompaignForm = document.querySelector("form");
+    // this.getListOfimagesinBase64();
+    this.#createCompaignForm.addEventListener("submit", (e) => {
+      this.createCompaign(e); 
+    });
+    document
+      .querySelector('input[name="addReward"]')
+      .addEventListener("click", () => {
+        this.addReward();
+      });
+    this.getListOfimagesinBase64();
+  }
+  setupTheUpdateCampaigns() {
     this.fetchCurrentCompaigns();
+    document.querySelector(".mainContent").innerHTML =
+      this.#compaignDetailsUpdate;
     document.querySelector(".compaignRow").addEventListener("click", (e) => {
       if (e.target.dataset.id) {
         const compaign = this.#compaigns.find((cop) => {
@@ -126,21 +258,6 @@ class Campaigner {
         });
       }
     });
-    this.#compaignRewards = [];
-    // console.log(this.#compaignRewards);
-    this.compaignImages = [];
-    // setUp Creation Page
-    // document.querySelector(".mainContent").innerHTML = this.#createCompaignPage;
-    // this.#createCompaignForm = document.querySelector("form");
-    // // this.getListOfimagesinBase64();
-    // this.#createCompaignForm.addEventListener("submit", (e) => {
-    //   this.createCompaign(e);
-    // });
-    // document
-    //   .querySelector('input[name="addReward"]')
-    //   .addEventListener("click", () => {
-    //     this.addReward();
-    //   });
   }
 
   patchTheCampaigns(campaign) {
@@ -157,7 +274,7 @@ class Campaigner {
 
     const goalInput = document.querySelector('input[name="goal"]');
     goalInput.value = campaign.goal;
-    const Images = this.compaignImages;
+    const Images = Campaigner.compaignImages;
 
     const newsInp = document.querySelector('input[name="news"]');
     newsInp.value = campaign.value;
@@ -261,7 +378,8 @@ class Campaigner {
               .appendChild(img);
             // want this to be on the claass
 
-            this.compaignImages.push(fullBase64);
+            Campaigner.compaignImages.push(fullBase64);
+            console.log();
           };
           reader.onerror = function (err) {
             console.log("error while reading files: " + err);
