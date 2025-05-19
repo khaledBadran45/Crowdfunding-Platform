@@ -1,6 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-  new Explore();
-});
 class Explore {
   campaign = [];
   user;
@@ -9,22 +6,28 @@ class Explore {
     this.user = JSON.parse(localStorage.getItem("token")) || "anonymous";
     this.fetchCompaigns();
     // this.fetchPledges();
-    const pledgeForm = document.querySelector("#pledgeForm");
-    console.log(pledgeForm);
-    if (pledgeForm) {
-      pledgeForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        if (pledgeForm.checkValidity()) {
-          const amount = document.querySelector("input[name='amount']").value;
-          const pledgeReqBody = {
-            amount: amount,
-            campaignId: this.campaign.id,
-            userId: this.user.id,
-          };
-          this.addNewPledge(pledgeReqBody);
-        }
-      });
-    }
+    const form = document.querySelector(".modal-body form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (form.checkValidity()) {
+        const amount = document.querySelector("input[name='amount']").value;
+        const pledgeReqBody = {
+          amount: amount,
+          campaignId: this.campaign.id,
+          userId: this.user.id,
+        };
+        fetch("http://localhost:3000/pledges", {
+          method: "POST",
+          body: JSON.stringify(pledgeReqBody),
+        })
+          .then((res) => {
+            console.log("you are successfully add a pledge", res);
+          })
+          .catch((err) => {
+            console.log(`problom while do the req${err}`);
+          });
+      }
+    });
   }
   fetchCompaigns() {
     fetch(`http://localhost:3000/compaigns`)
@@ -36,25 +39,6 @@ class Explore {
         // alert(
         //   "sorry we are facing a problim while fetching data from the server"
         // );
-      });
-  }
-  async addNewPledge(pledgeReqBody) {
-    fetch("http://localhost:3000/pledges", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(pledgeReqBody),
-      redirect: "manual",
-    })
-      .then((res) => {
-        console.log("رد السيرفر:", res.status, res.statusText);
-        submitButton.disabled = false;
-        console.log("خلّص الريكويست!");
-      })
-      .catch((err) => {
-        submitButton.disabled = false;
-        console.error("خطأ:", err.message);
       });
   }
   // fetchPledges() {
@@ -112,7 +96,7 @@ class Explore {
                   }</span>
                 </div>
                 ${
-                  this.user.role == "backer" &&
+                  this.user.role == "backer" ?
                   `<div class="text-end">
                     <button
                       data-comp='${JSON.stringify(comp)}'
@@ -122,7 +106,7 @@ class Explore {
                     >
                       Pledge
                     </button>
-                  </div>`
+                  </div>`:``
                 }
               </div>
             </div>
@@ -141,3 +125,4 @@ class Explore {
     });
   }
 }
+new Explore();
