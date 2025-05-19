@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crowdfunding Platform</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+    />
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="./assets/fontawesome/css/all.min.css" /> -->
+    <!-- /fonts -->
+
+    <link rel="stylesheet" href="./../../style/reset.css" />
+    <link rel="stylesheet" href="./../../style/variables.css" />
+    <link rel="stylesheet" href="./../../style/style.css" />
+    <link
+      rel="shortcut icon"
+      href="https://img.freepik.com/premium-vector/crowdfunding-platform-crowdfunding-icon-concept_313674-702.jpg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg bg-white border-bottom">
+      <div class="container p-4">
+        <a class="navbar-brand fw-bold" href="./../../index.html">Pozible</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse w-100" id="mainNavbar">
+          <ul class="navbar-nav w-50">
+            <li class="nav-item px-4">
+              <a class="nav-link" href="./explore.html">expolore</a>
+            </li>
+            <li class="nav-item px-4">
+              <a class="nav-link" href="./../../pages/pledges/pledges.html"
+                >pledges</a
+              >
+            </li>
+          </ul>
+
+          <div class="d-flex w-50 align-items-center gap-2" role="search">
+            <ul class="input-group d-felx justify-content-end auth">
+              <li class="nav-item list-unstyled">
+                <a
+                  class="nav-link btn btn-outline-secondary nav-btn-search px-2"
+                  id="sign_up"
+                  >Sign Up</a
+                >
+              </li>
+              <li class="nav-item list-unstyled">
+                <a
+                  class="nav-link btn btn-outline-secondary nav-btn-search px-2"
+                  id="sign_in"
+                  >Sign in</a
+                >
+              </li>
+              <li class="nav-item list-unstyled">
+                <a
+                  class="nav-link btn btn-outline-secondary nav-btn-search d-none px-2"
+                  id="log_out"
+                  >Logout</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="popUp row"></div>
+        </div>
+      </div>
+    </nav>
+    <!-- /nav -->
+    <!-- Filtering -->
+    <section id="Filtering">
+      <div class="container p-2">
+        <div
+          class="ExpoloreMoreComp row justify-content-start align-items-center"
+        ></div>
+        <div
+          class="modal fade"
+          id="pledgeModal"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header d-flex justify-content-between p-2">
+                <h5 class="modal-title" id="pledgeModalLabel">Make a Pledge</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form
+                  class="p-2"
+                  id="pledgeForm"
+                >
+                  <div class="pt-3 pb-4">
+                    <label for="pledgeAmount" class="form-label"
+                      >Pledge Amount</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="pledgeAmount"
+                      name="amount"
+                      min="1"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Minmum amount for a Pledge is 1 $ , can't be empty
+                    </div>
+                  </div>
+                  <div class="modal-footer p-2">
+                    <button
+                      type="button"
+                      class="btn mx-1 px-2 btn-secondary"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="submit"
+                      class="btn px-2 btn-primary"
+                      id="submitPledge"
+                    >
+                      Submit Pledge
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- From Uiverse.io by cosnametv -->
+    <!-- <div class="loader-wrapper w-100 vh-100 top-0">
+      <div class="loader mx-auto">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="explore.js"></script>
+    <script src="./../../script/auth.js"></script>
+  </body>
+</html>

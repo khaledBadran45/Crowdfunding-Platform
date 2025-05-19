@@ -1,0 +1,143 @@
+document.addEventListener("DOMContentLoaded", () => {
+  new Explore();
+});
+class Explore {
+  campaign = [];
+  user;
+  campaignPledges = new Map();
+  constructor() {
+    this.user = JSON.parse(localStorage.getItem("token")) || "anonymous";
+    this.fetchCompaigns();
+    // this.fetchPledges();
+    const pledgeForm = document.querySelector("#pledgeForm");
+    console.log(pledgeForm);
+    if (pledgeForm) {
+      pledgeForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (pledgeForm.checkValidity()) {
+          const amount = document.querySelector("input[name='amount']").value;
+          const pledgeReqBody = {
+            amount: amount,
+            campaignId: this.campaign.id,
+            userId: this.user.id,
+          };
+          this.addNewPledge(pledgeReqBody);
+        }
+      });
+    }
+  }
+  fetchCompaigns() {
+    fetch(`http://localhost:3000/compaigns`)
+      .then((res) => res.json())
+      .then((campigns) => {
+        this.displayCampigns(campigns);
+      })
+      .catch((x) => {
+        // alert(
+        //   "sorry we are facing a problim while fetching data from the server"
+        // );
+      });
+  }
+  async addNewPledge(pledgeReqBody) {
+    fetch("http://localhost:3000/pledges", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(pledgeReqBody),
+      redirect: "manual",
+    })
+      .then((res) => {
+        console.log("رد السيرفر:", res.status, res.statusText);
+        submitButton.disabled = false;
+        console.log("خلّص الريكويست!");
+      })
+      .catch((err) => {
+        submitButton.disabled = false;
+        console.error("خطأ:", err.message);
+      });
+  }
+  // fetchPledges() {
+  //   fetch(`http://localhost:3000/pledges`)
+  //     .then((res) => res.json())
+  //     .then((pleds) => {
+  //      const totalsMap = pledges.reduce((acc, pledge) => {
+  //       const campaignId = pledge.campaignId;
+  //       const amount = Number(pledge.amount);
+
+  //       // اجمع التبرعات لكل campaignId
+  //       acc[campaignId] = (acc[campaignId] || 0) + amount;
+  //       return acc;
+  //     }, {}); // ابدأ من object فاضي
+
+  //     })
+  //     .catch((x) => {
+  //       console.log(x);
+  //     });
+  // }
+
+  displayCampigns(campigns) {
+    campigns.forEach((comp) => {
+      // display logic here
+      document.querySelector(".ExpoloreMoreComp").innerHTML += `
+      <div class="col-lg-3 col-md-6 col-sm-10 p-2">
+        <div class="d-flex justify-content-center">
+          <div class="card shadow-sm position-relative overflow-hidden">
+            <div class="position-relative">
+              <img
+                src="${comp.images[0]}"
+                class="recently-card-img-top"
+                alt="recently funded"
+              />
+              <div
+                class="overlay bg-dark bg-opacity-50 position-absolute top-0 start-0 w-100 h-100"
+              ></div>
+              <h5
+                class="title-overlay position-absolute top-50 start-50 translate-middle text-white text-center fw-bold px-2"
+              >${comp.title}</h5>
+            </div>
+            <div class="recently-card-body text-start p-2">
+              <p class="text-muted fw-semibold fs-6">${comp.description}</p>
+              <div class="p-2">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                  <h6 class="text-card fs-5">21,299</h6>
+                  <span class="text-card fs-6 fw-semibold">of ${
+                    comp.goal
+                  } target</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center w-100">
+                  <h6 class="text-card fs-5">deadline</h6>
+                  <span class="text-card fs-6 fw-semibold">${
+                    comp.deadline
+                  }</span>
+                </div>
+                ${
+                  this.user.role == "backer" &&
+                  `<div class="text-end">
+                    <button
+                      data-comp='${JSON.stringify(comp)}'
+                      class="pledgeBtn bg-secondary border-0 rounded-1 px-3 text-white"
+                      data-bs-toggle="modal"
+                      data-bs-target="#pledgeModal"
+                    >
+                      Pledge
+                    </button>
+                  </div>`
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    });
+    this.addPledge();
+  }
+
+  addPledge() {
+    document.querySelectorAll(".pledgeBtn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        this.campaign = JSON.parse(e.target.dataset.comp);
+      });
+    });
+  }
+}

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Pledges | Crowdfund</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <style>
+      :root {
+        --primary-color: #4361ee;
+        --secondary-color: #3f37c9;
+        --success-color: #4cc9f0;
+        --light-bg: #f8f9fa;
+      }
+
+      body {
+        background-color: #f5f7fa;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .pledge-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 10px;
+        overflow: hidden;
+        border: none;
+      }
+
+      .pledge-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .campaign-image {
+        height: 120px;
+        object-fit: cover;
+      }
+
+      .status-badge {
+        font-size: 0.75rem;
+        padding: 0.35em 0.65em;
+      }
+
+      .progress {
+        height: 8px;
+        border-radius: 4px;
+      }
+
+      .nav-pills .nav-link.active {
+        background-color: var(--primary-color);
+      }
+
+      .nav-pills .nav-link {
+        color: #495057;
+        font-weight: 500;
+      }
+
+      .reward-badge {
+        background-color: var(--success-color);
+        color: white;
+      }
+
+      .empty-state {
+        padding: 3rem;
+        text-align: center;
+        background-color: white;
+        border-radius: 10px;
+      }
+    </style>
+    <link rel="stylesheet" href="./../../style/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-white border-bottom">
+      <div class="container p-2">
+        <a class="navbar-brand fw-bold" href="./../../index.html">Pozible</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse w-100" id="mainNavbar">
+          <ul class="navbar-nav w-50">
+            <li class="nav-item px-4">
+              <a class="nav-link" href="./../../pages/explore/explore.html"
+                >expolore</a
+              >
+            </li>
+            <li class="nav-item px-4">
+              <a
+                id="pledges"
+                class="nav-link d-none"
+                href="./pages/pledges/pledges.html"
+                >pledges</a
+              >
+            </li>
+          </ul>
+
+          <div class="d-flex w-50 align-items-center gap-2" role="search">
+            <ul class="input-group d-felx justify-content-end auth">
+              <li class="nav-item list-unstyled">
+                <a
+                  class="nav-link btn btn-outline-secondary nav-btn-search px-2"
+                  id="sign_up"
+                  >Sign Up</a
+                >
+              </li>
+              <li class="nav-item list-unstyled">
+                <a
+                  class="nav-link btn btn-outline-secondary nav-btn-search px-2"
+                  id="sign_in"
+                  >Sign in</a
+                >
+              </li>
+              <li class="nav-item list-unstyled">
+                <a
+                  class="nav-link btn btn-outline-secondary nav-btn-search d-none px-2"
+                  id="log_out"
+                  >Logout</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="popUp row"></div>
+        </div>
+      </div>
+    </nav>
+    <!-- From Uiverse.io by cosnametv -->
+    <div class="loader-wrapper d-none w-100 vh-100 top-0">
+      <div class="loader mx-auto">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <!-- Main Content -->
+    <div class="container px-4 my-5">
+      <div class="row gap-4 justify-content-start mb-4">
+        <div class="col-10 my-3">
+          <h2 class="fw-bold">My Pledges</h2>
+          <p class="text-muted">View and manage all your pledges</p>
+        </div>
+      </div>
+
+      <div class="">
+        <div class="row justify-content-center">
+          <div class="col-10 me-md-auto col-lg-3">
+            <div class="card">
+              <div class="card-body pledge_stats"></div>
+            </div>
+          </div>
+
+          <div class="col-10 col-lg-9">
+            <div class="pledges_container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // JavaScript functionality would go here
+      document.addEventListener("DOMContentLoaded", function () {
+        // You would fetch pledge data from your JSON server here
+        // Example:
+        /*
+            fetch('http://localhost:3000/pledges?userId=1')
+                .then(response => response.json())
+                .then(pledges => {
+                    // Render pledges to the page
+                    if (pledges.length === 0) {
+                        document.querySelector('.empty-state').classList.remove('d-none');
+                        document.querySelector('.pledges-list').classList.add('d-none');
+                    } else {
+                        // Populate pledge cards
+                    }
+                });
+            */
+
+        // Mock functionality for demo purposes
+        const cancelButtons = document.querySelectorAll(".btn-outline-danger");
+        cancelButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            if (confirm("Are you sure you want to cancel this pledge?")) {
+              const card = this.closest(".pledge-card");
+              card.classList.add("opacity-50");
+              this.disabled = true;
+              this.innerHTML = '<i class="bi bi-hourglass"></i> Processing...';
+              // In a real app, you would send a DELETE request to your server
+              setTimeout(() => {
+                card.remove();
+              }, 1500);
+            }
+          });
+        });
+      });
+    </script>
+    <script src="./pledges.js"></script>
+
+    <script src="./../../script/auth.js"></script>
+  </body>
+</html>

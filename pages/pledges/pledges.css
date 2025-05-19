@@ -1,0 +1,42 @@
+.pledge-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.pledge-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+.main-content {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+.pledge-stats-card {
+  height: 100%;
+}
+
+@media (max-width: 767.98px) {
+  .pledge-stats-card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+}
+
+footer {
+  margin-top: auto;
+}

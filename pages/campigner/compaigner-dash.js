@@ -222,8 +222,8 @@ class Campaigner {
   compaignImages = [];
   #compaignRewards = [];
   constructor() {
-    this.setupTheUpdateCampaigns();
-    // this.SetupTheCreationOfTheCompaign();
+    // this.setupTheUpdateCampaigns();
+    this.SetupTheCreationOfTheCompaign();
     // setup Upadtion copmaigns
     // patch the compaigns to the input
     // get the input then attach the compaigns
