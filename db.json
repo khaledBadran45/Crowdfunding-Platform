@@ -1,46 +1,6 @@
 {
   "users": [
     {
-      "id": "0921",
-      "username": "khaled",
-      "email": "kbadran842@gmail.com",
-      "password": "66666666",
-      "role": "backer",
-      "status": "Active"
-    },
-    {
-      "id": "37e9",
-      "username": "khaled",
-      "email": "kbadwwran842@gmail.com",
-      "password": "66666666",
-      "role": "backer",
-      "status": "Active"
-    },
-    {
-      "id": "2e5a",
-      "username": "younes",
-      "email": "kbaertdran842@gmail.com",
-      "password": "123697",
-      "role": "campainer",
-      "status": "pending"
-    },
-    {
-      "id": "2005",
-      "username": "khaled",
-      "email": "iwqoadran842@gmail.com",
-      "password": "98752685",
-      "role": "campainer",
-      "status": "pending"
-    },
-    {
-      "id": "2159",
-      "username": "younes",
-      "email": "kbadran820@gmail.com",
-      "password": "98425445",
-      "role": "campainer",
-      "status": "pending"
-    },
-    {
       "id": "46bb",
       "username": "younes",
       "email": "kbad746ran842@gmail.com",
@@ -49,63 +9,15 @@
       "status": "Active"
     },
     {
-      "id": "8daf",
-      "username": "younes",
-      "email": "kbadranwq42@gmail.com",
-      "password": "99999999999",
-      "role": "backer",
+      "id": "84c5",
+      "username": "Hassan",
+      "email": "kHassan842@gmail.com",
+      "password": "5645964645",
+      "role": "campaigner",
       "status": "Active"
     }
   ],
   "campaigns": [
-    {
-      "id": "sports1",
-      "title": "Community Football League",
-      "category": "sports",
-      "description": "Youth football league for underprivileged neighborhoods",
-      "goal": "5000",
-      "deadline": "2025-08-15",
-      "images": [
-        "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800"
-      ],
-      "isApproved": true
-    },
-    {
-      "id": "sports2",
-      "title": "Women's Basketball Camp",
-      "category": "sports",
-      "description": "Free training for young female athletes",
-      "goal": "3500",
-      "deadline": "2025-07-20",
-      "images": [
-        "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800"
-      ],
-      "isApproved": true
-    },
-    {
-      "id": "sports3",
-      "title": "Disability Tennis Tournament",
-      "category": "sports",
-      "description": "Adaptive sports event for athletes with disabilities",
-      "goal": "6000",
-      "deadline": "2025-09-10",
-      "images": [
-        "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=800"
-      ],
-      "isApproved": false
-    },
-    {
-      "id": "sports4",
-      "title": "Boxing Gym Renovation",
-      "category": "sports",
-      "description": "Upgrading facilities for at-risk youth programs",
-      "goal": "8000",
-      "deadline": "2025-10-05",
-      "images": [
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800"
-      ],
-      "isApproved": true
-    },
     {
       "id": "sports5",
       "title": "Swim Safety Classes",
@@ -287,18 +199,6 @@
       "isApproved": true
     },
     {
-      "id": "patriotism5",
-      "title": "Patriotic Youth Camp",
-      "category": "patriotism",
-      "description": "Leadership training for future leaders",
-      "goal": "12000",
-      "deadline": "2025-09-15",
-      "images": [
-        "https://images.unsplash.com/photo-1526779259212-939e64788e3c?w=800"
-      ],
-      "isApproved": true
-    },
-    {
       "id": "patriotism1",
       "title": "Veteran Housing Initiative",
       "category": "patriotism",
@@ -471,20 +371,20 @@
     {
       "id": "5b25",
       "amount": "20",
-      "campaignId": "sports1",
-      "userId": "0921"
+      "campaignId": null,
+      "userId": null
     },
     {
       "id": "8708",
       "amount": "65",
-      "campaignId": "sports1",
-      "userId": "0921"
+      "campaignId": null,
+      "userId": null
     },
     {
       "id": "963e",
       "amount": "98",
-      "campaignId": "sports1",
-      "userId": "0921"
+      "campaignId": null,
+      "userId": null
     }
   ]
 }

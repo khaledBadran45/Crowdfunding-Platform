@@ -47,7 +47,7 @@ function displaySignUP() {
 <select name="role" class="input">
   <option value="">Select a role</option>
   <option value="backer">backer</option>
-  <option value="campainer">campaigner</option>
+  <option value="campaigner">campaigner</option>
 </select>
 </div>
 <div class="roleMsg Error_msg">Please select a role</div>

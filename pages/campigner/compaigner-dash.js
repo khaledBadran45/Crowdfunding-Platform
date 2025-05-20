@@ -251,7 +251,7 @@ class Campaigner {
         console.log(x);
       });
   }
-  
+
   SetupTheCreationOfTheCompaign() {
     this.#compaignRewards = [];
     // console.log(this.#compaignRewards);
