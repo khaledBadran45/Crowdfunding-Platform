@@ -318,11 +318,13 @@ function handleUserLoign(user) {
 }
 
 document.querySelector("#log_out").addEventListener("click", (e) => {
+  handlerUserLogout();
+});
+function handlerUserLogout() {
   localStorage.removeItem("token");
   document.querySelector("#log_out").classList.add("d-none"),
     document.querySelector("#sign_in").classList.remove("d-none"),
     document.querySelector("#sign_up").classList.remove("d-none");
   document.querySelector("#pledges").classList.add("d-none");
-
   document.querySelector("#dashbord").classList.add("d-none");
-});
+}

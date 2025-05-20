@@ -19,8 +19,8 @@ fetch("http://localhost:3000/users")
       `;
         usersTableBody.appendChild(row);
       });
-    }else{
-      console.log('there iows');
+    } else {
+      console.log("there iows");
     }
     updateCounts();
   });
@@ -29,7 +29,6 @@ fetch("http://localhost:3000/campaigns")
   .then((res) => res.json())
   .then((campaigns) => {
     document.getElementById("campaign-count").textContent = campaigns.length;
-
     const campaignsTableBody = document.querySelector("#campaigns-table tbody");
     campaigns.forEach((c) => {
       const row = document.createElement("tr");
@@ -38,7 +37,6 @@ fetch("http://localhost:3000/campaigns")
       row.innerHTML = `
         <td>${c.title}</td>
         <td>${c.description}</td>
-       
         <td class="campaign-status">${
           c.isApproved ? "Approved" : "Pending"
         }</td>
@@ -74,6 +72,8 @@ document.getElementById("users-table").addEventListener("click", function (e) {
     fetch(`http://localhost:3000/users/${userId}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
+    }).then((x) => {
+      handlerUserLogout();
     });
   }
   updateCounts();

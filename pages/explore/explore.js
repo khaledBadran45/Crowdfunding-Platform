@@ -5,7 +5,7 @@ class Explore {
   constructor() {
     this.user = JSON.parse(localStorage.getItem("token")) || "anonymous";
     this.fetchCompaigns();
-    // this.fetchPledges();
+    this.fetchPledges();
     const form = document.querySelector(".modal-body form");
     form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -28,13 +28,14 @@ class Explore {
           });
       }
     });
-    document.querySelector('input[name="search"]')
-      .addEventListener("keydown", (e) => {
-        console.log(e.target);
-      });
+    // document
+    //   .querySelector('input[name="search"]')
+    //   .addEventListener("keydown", (e) => {
+    //     console.log(e.target);
+    //   });
   }
   fetchCompaigns() {
-    fetch(`http://localhost:3000/compaigns`)
+    fetch(`http://localhost:3000/campaigns?isApproved=true`)
       .then((res) => res.json())
       .then((campigns) => {
         this.displayCampigns(campigns);
@@ -45,25 +46,16 @@ class Explore {
         // );
       });
   }
-  // fetchPledges() {
-  //   fetch(`http://localhost:3000/pledges`)
-  //     .then((res) => res.json())
-  //     .then((pleds) => {
-  //      const totalsMap = pledges.reduce((acc, pledge) => {
-  //       const campaignId = pledge.campaignId;
-  //       const amount = Number(pledge.amount);
-
-  //       // اجمع التبرعات لكل campaignId
-  //       acc[campaignId] = (acc[campaignId] || 0) + amount;
-  //       return acc;
-  //     }, {}); // ابدأ من object فاضي
-
-  //     })
-  //     .catch((x) => {
-  //       console.log(x);
-  //     });
-  // }
-
+  fetchPledges() {
+    fetch(`http://localhost:3000/pledges`)
+      .then((res) => res.json())
+      .then((pleds) => {
+        this.pledgs = pleds;
+      })
+      .catch((x) => {
+        console.log(x);
+      });
+  }
   displayCampigns(campigns) {
     campigns.forEach((comp) => {
       // display logic here
@@ -88,7 +80,9 @@ class Explore {
               <p class="text-muted fw-semibold fs-6">${comp.description}</p>
               <div class="p-2">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                  <h6 class="text-card fs-5">21,299</h6>
+                  <h6 class="text-card fs-5">${this.getTotalPledgesAmounts(
+                    comp.id
+                  )}</h6>
                   <span class="text-card fs-6 fw-semibold">of ${
                     comp.goal
                   } target</span>
@@ -121,7 +115,14 @@ class Explore {
     });
     this.addPledge();
   }
-
+  getTotalPledgesAmounts(campaignId) {
+    const p = this.pledgs.filter((pld) => pld.campaignId == campaignId);
+    let sum = 0;
+    p.forEach((p) => {
+      sum += Number(p.amount);
+    });
+    return sum;
+  }
   addPledge() {
     document.querySelectorAll(".pledgeBtn").forEach((btn) => {
       btn.addEventListener("click", (e) => {
@@ -129,8 +130,5 @@ class Explore {
       });
     });
   }
-  // search() {
-
-  // }
 }
 new Explore();
