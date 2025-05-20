@@ -1,88 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Dashboard</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  
+<style>tbody td{
+  text-align: center;
+}</style>
+</head>
+<body>
+<div class="d-flex">
+  <!-- Sidebar -->
+  <aside style="width: 200px; height: 100vh; background-color: #f8f9fa;" class="p-3">
+    <h5>Dashboard</h5>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" id="show-users" href="./../createCamp/createCamp.html"> Display</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link "id="show-campaigns" href="./../updateCamp/update.html">Campaigns</a>
+      </li>
+    </ul>
+  </aside>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="compaigner-dash.css" />
-  </head>
-  <body>
-    <!-- nav -->
-    <!-- <nav class="position-relative">
-      <ul class="justify-content-start py-4 align-items-center">
-        <li class="px-4">
-          <img
-            width="90px"
-            src="https://cdn.pozible.com/staticImages/logo.png"
-            alt=""
-            srcset=""
-          />
-        </li>
-        <li><a href="./explore.html" class="p-1 active">Explore</a></li>
-        <ul class="ms-auto justify-content-around px-4">
-          <li class="px-4">
-            <a href="#">
-              <i class="fa-solid fa-magnifying-glass"></i> Search
-            </a>
-          </li>
-          <li><button id="sign_up" class="p-1">sign up</button></li>
-          <li><button id="sign_in" class="p-1">login</button></li>
-          <li><a id="dashbord" href="/compaigner-dash.html">dashbord</a></li>
-        </ul>
-      </ul>
-      <div class="popUp row"></div>
-    </nav> -->
-    <!-- /nav -->
-
-    <div class="container-fluid">
-      <div class="row px-3">
-        <!-- Sidebar -->
-        <div class="col-md-3 sidebar">
-          <!-- Profile -->
-          <div class="user-info">
-            <img
-              src="https://lh3.googleusercontent.com/a/ACg8ocJEbaHU1Wl2swYndJt1IraAy60urTMRjW0YkrClJX4sR-qxXg=s96-c"
-              alt="Profile"
-              class="profile-img"
-            />
-            <div>
-              <a href="/profile/khaled-badran"
-                ><strong>khaled badran</strong></a
-              >
-              <div><a href="#">Logout</a></div>
-            </div>
-          </div>
-          <!-- Creating Section -->
-          <!-- <div class="section-title">Creating</div> -->
-          <a href="/user/dashboard" id="create_compaign"
-            ><i class="bi bi-speedometer2"></i> Create Compaign</a
-          >
-          <a href="/user/profile" id="update_compaign"
-            ><i class="bi bi-person"></i> Update Compaigns</a
-          >
-          <a href="/user/campaigns" id=""
-            ><i class="bi bi-megaphone"></i> My Campaigns</a
-          >
-        </div>
-
-        <!-- Main Content -->
-        <div class="col-md-9 mainContent p-4"></div>
+  <div class="container my-5">
+    <h1 class="mb-4">Dashboard</h1>
+    <div class="row mb-4" id="cards-container">
+  <div class="col-md-3">
+    <div class="card text-white bg-success  mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Total Users</h5>
+        <p class="card-text" id="user-count">0</p>
+      </div>
     </div>
-    <script src="./compaigner-dash.js"></script>
-  </body>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Total Campaigns</h5>
+        <p class="card-text" id="campaign-count">0</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Active Users</h5>
+        <p class="card-text" id="active-users-count">0</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Approved Campaigns</h5>
+        <p class="card-text" id="approved-campaigns-count">0</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="users-table">
+    <h2>Users</h2>
+    <table class="table table-bordered" >
+      <thead>
+        <tr class="text-center">
+          <th>Name</th><th>Email</th>><th>Role</th><th>Status</th><th colspan="3">Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    </div>
+<div id="campaigns-table">
+    <h2>Campaigns</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th><th>Description</th><th>Status</th><td><th colspan="2">Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+<script src="./../../script/auth.js"></script>
+  <script src="main.js"></script>
+</body>
 </html>

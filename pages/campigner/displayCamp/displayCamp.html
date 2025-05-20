@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  
+<style>tbody td{
+  text-align: center;
+}</style>
+</head>
+<body>
+<div class="d-flex">
+  <!-- Sidebar -->
+  <aside style="width: 200px; height: 100vh; background-color: #f8f9fa;" class="p-3">
+    <h5>Dashboard</h5>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" id="show-users" href="./../createCamp/createCamp.html"> Display</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link "id="show-campaigns" href="./../updateCamp/update.html">Campaigns</a>
+      </li>
+    </ul>
+  </aside>
+
+  <div class="container my-5">
+    <h1 class="mb-4">Dashboard</h1>
+    <div class="row mb-4" id="cards-container">
+  <div class="col-md-3">
+    <div class="card text-white bg-success  mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Total Users</h5>
+        <p class="card-text" id="user-count">0</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Total Campaigns</h5>
+        <p class="card-text" id="campaign-count">0</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Active Users</h5>
+        <p class="card-text" id="active-users-count">0</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Approved Campaigns</h5>
+        <p class="card-text" id="approved-campaigns-count">0</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="users-table">
+    <h2>Users</h2>
+    <table class="table table-bordered" >
+      <thead>
+        <tr class="text-center">
+          <th>Name</th><th>Email</th>><th>Role</th><th>Status</th><th colspan="3">Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    </div>
+<div id="campaigns-table">
+    <h2>Campaigns</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th><th>Description</th><th>Status</th><td><th colspan="2">Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+<script src="./../../script/auth.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
