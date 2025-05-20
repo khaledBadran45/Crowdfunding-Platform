@@ -1,39 +1,45 @@
-
 fetch("http://localhost:3000/users")
-  .then(res => res.json())
-  .then(users => {
+  .then((res) => res.json())
+  .then((users) => {
     document.getElementById("user-count").textContent = users.length;
-console.log(users);
+    console.log(users);
     const usersTableBody = document.querySelector("#users-table tbody");
-    users.forEach(user => {
-      const row = document.createElement("tr");
-      row.innerHTML = `
+    if (users.length) {
+      users.forEach((user) => {
+        const row = document.createElement("tr");
+        row.dataset.id = user.id;
+        row.innerHTML = `
         <td>${user.username}</td>
         <td>${user.email}</td>
       <td>${user.role}</td>
         <td class="user-status">${user.status || "Pending"}</td>
         <td><button class="btn btn-primary activate">Activate</button></td>
         <td><button class="btn btn-danger ban">Ban</button></td>
+        <td><button class="btn btn-danger delete">delete</button></td>
       `;
-      usersTableBody.appendChild(row);
-    });
-
+        usersTableBody.appendChild(row);
+      });
+    }
     updateCounts();
   });
 
 fetch("http://localhost:3000/campaigns")
-  .then(res => res.json())
-  .then(campaigns => {
+  .then((res) => res.json())
+  .then((campaigns) => {
     document.getElementById("campaign-count").textContent = campaigns.length;
 
     const campaignsTableBody = document.querySelector("#campaigns-table tbody");
-    campaigns.forEach(c => {
+    campaigns.forEach((c) => {
       const row = document.createElement("tr");
+      console.log(c.id);
+      row.dataset.id = c.id;
       row.innerHTML = `
         <td>${c.title}</td>
         <td>${c.description}</td>
        
-        <td class="campaign-status">${c.isApproved ? "Approved" : "Pending"}</td>
+        <td class="campaign-status">${
+          c.isApproved ? "Approved" : "Pending"
+        }</td>
         <td><button class="btn btn-primary approve">Approve</button></td>
         <td><button class="btn btn-warning pause">Pause</button></td>
         <td><button class="btn btn-danger delete-campaign">Delete</button></td>
@@ -46,69 +52,76 @@ fetch("http://localhost:3000/campaigns")
 
 document.getElementById("users-table").addEventListener("click", function (e) {
   const row = e.target.closest("tr");
-  const userId = row.children[0].textContent;
-
+  const userId = row.dataset.id;
   if (e.target.classList.contains("activate")) {
     row.querySelector(".user-status").textContent = "Active";
     fetch(`http://localhost:3000/users/${userId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status: "Active" })
+      body: JSON.stringify({ status: "Active" }),
     });
   } else if (e.target.classList.contains("ban")) {
     row.querySelector(".user-status").textContent = "Banned";
     fetch(`http://localhost:3000/users/${userId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status: "Banned" })
+      body: JSON.stringify({ status: "Banned" }),
+    });
+  } else if (e.target.classList.contains("delete")) {
+    row.querySelector(".user-status").textContent = "delete";
+    fetch(`http://localhost:3000/users/${userId}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
     });
   }
-
   updateCounts();
 });
 
-document.getElementById("campaigns-table").addEventListener("click", function (e) {
-  const row = e.target.closest("tr");
-  const campaignId = row.children[0].textContent;
+document
+  .getElementById("campaigns-table")
+  .addEventListener("click", function (e) {
+    const row = e.target.closest("tr");
+    const campaignId = row.dataset.id;
+    console.log(campaignId);
+    if (e.target.classList.contains("approve")) {
+      row.querySelector(".campaign-status").textContent = "Approved";
+      fetch(`http://localhost:3000/campaigns/${campaignId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ isApproved: true }),
+      });
+    } else if (e.target.classList.contains("pause")) {
+      row.querySelector(".campaign-status").textContent = "Paused";
+      fetch(`http://localhost:3000/campaigns/${campaignId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ isApproved: false }),
+      });
+    } else if (e.target.classList.contains("delete-campaign")) {
+      row.remove();
+      fetch(`http://localhost:3000/campaigns/${campaignId}`, {
+        method: "DELETE",
+      });
+    }
 
-  if (e.target.classList.contains("approve")) {
-    row.querySelector(".campaign-status").textContent = "Approved";
-    fetch(`http://localhost:3000/campaigns/${campaignId}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ isApproved: true })
-    });
-  } else if (e.target.classList.contains("pause")) {
-    row.querySelector(".campaign-status").textContent = "Paused";
-    fetch(`http://localhost:3000/campaigns/${campaignId}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ isApproved: false })
-    });
-  } else if (e.target.classList.contains("delete-campaign")) {
-    row.remove();
-    fetch(`http://localhost:3000/campaigns/${campaignId}`, {
-      method: "DELETE"
-    });
-  }
-
-  updateCounts();
-});
+    updateCounts();
+  });
 
 function updateCounts() {
   const activeUsers = document.querySelectorAll(".user-status");
   let activeCount = 0;
-  activeUsers.forEach(status => {
+  activeUsers.forEach((status) => {
     if (status.textContent === "Active") activeCount++;
   });
   document.getElementById("active-users-count").textContent = activeCount;
 
   const approvedCampaigns = document.querySelectorAll(".campaign-status");
   let approvedCount = 0;
-  approvedCampaigns.forEach(status => {
+  approvedCampaigns.forEach((status) => {
     if (status.textContent === "Approved") approvedCount++;
   });
-  document.getElementById("approved-campaigns-count").textContent = approvedCount;
+  document.getElementById("approved-campaigns-count").textContent =
+    approvedCount;
 }
 
 document.getElementById("show-users").addEventListener("click", (e) => {
