@@ -82,29 +82,13 @@ class Campaigner {
                 </div>
               </div>
             </div>
-            <h4>Rewards</h4>
-            <div class="row justify-content-center">
-            <div class="col-md-4">
-            <div class="mb-3">
-            <label for="limit">limit</label>
-            <input type="text" name="limit" class="form-control" id="limit" />
-          </div>
-            </div>
-              <div class="col-md-4">
-                <div class="mb-3">
-                <label for="Reward_Title">Reward Title</label>
-                <input type="text" name="Reward_Title" class="form-control" id="Reward_Title" />
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="">
-              <input type="button" name="addReward" class="mt-4 bg-primary border-0 rounded-2 text-white text-capitalize" value="new reward" id="Reward Title" />
-            </div>
+            
+    
               </div>
           <!-- Add your dashboard content here -->
         </div>
         <div class="col-4 ms-auto">
-          <input type="submit"  name="submit compaign" class="mt-4 w-100 bg-primary border-0 rounded-2 text-white text-capitalize" value="new compaign" id="compaignBtn" />
+          <input type="submit"  name="submit compaign" class="mt-4 py-2 w-100 bg-primary border-0 rounded-2 text-white text-capitalize" value="new compaign" id="compaignBtn" />
         </div> 
       </form>
   `;
@@ -222,6 +206,9 @@ class Campaigner {
   compaignImages = [];
   #compaignRewards = [];
   constructor() {
+    if (!localStorage.getItem("token")) {
+      window.location.href = "./../../index.html";
+    }
     this.user = JSON.parse(localStorage.getItem("token"));
     this.userStatus();
 

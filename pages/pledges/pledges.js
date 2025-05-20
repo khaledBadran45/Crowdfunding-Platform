@@ -1,6 +1,9 @@
 class Pledges {
   user;
   constructor() {
+    if (!localStorage.getItem("token")) {
+      window.location.href = "./../../index.html";
+    }
     this.user = JSON.parse(localStorage.getItem("token")) || "anonymous";
     // document.querySelector(".loader-wrapper").style.opacity = 1;
     this.fetchCompaigns();
