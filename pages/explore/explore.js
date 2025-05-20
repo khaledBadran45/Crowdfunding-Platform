@@ -1,5 +1,6 @@
 class Explore {
-  campaign = [];
+  campaign ;
+  camp
   user;
   campaignPledges = new Map();
   constructor() {
@@ -28,13 +29,34 @@ class Explore {
           });
       }
     });
-    // document
-    //   .querySelector('input[name="search"]')
-    //   .addEventListener("keydown", (e) => {
-    //     console.log(e.target);
-    //   });
+    document
+      .querySelector("#sortBycategorySelect")
+      .addEventListener("change", (e) => {
+        this.SortByCat(e.target.value);
+      });
+    document
+      .querySelector("#search")
+      .addEventListener("keyUp", this.searchCamp());
+  }
+  searchCamp(campChar) {
+    console.log(this.campaign)
+  }
+
+  SortByCat(categ) {
+    const url =
+      categ === "all"
+        ? "http://localhost:3000/campaigns"
+        : `http://localhost:3000/campaigns?category=${categ}`;
+    if (categ)
+      fetch(url)
+        .then((res) => res.json())
+        .then((campigns) => {
+          this.displayCampigns(campigns);
+        })
+        .catch((x) => {});
   }
   fetchCompaigns() {
+    console.log("works");
     fetch(`http://localhost:3000/campaigns?isApproved=true`)
       .then((res) => res.json())
       .then((campigns) => {
@@ -57,6 +79,8 @@ class Explore {
       });
   }
   displayCampigns(campigns) {
+    console.log(campigns);
+    document.querySelector(".ExpoloreMoreComp").innerHTML = "";
     campigns.forEach((comp) => {
       // display logic here
       document.querySelector(".ExpoloreMoreComp").innerHTML += `
@@ -80,9 +104,7 @@ class Explore {
               <p class="text-muted fw-semibold fs-6">${comp.description}</p>
               <div class="p-2">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                  <h6 class="text-card fs-5">${this.getTotalPledgesAmounts(
-                    comp.id
-                  )}</h6>
+                  <h6 class="text-card fs-5">45$</h6>
                   <span class="text-card fs-6 fw-semibold">of ${
                     comp.goal
                   } target</span>
@@ -116,12 +138,20 @@ class Explore {
     this.addPledge();
   }
   getTotalPledgesAmounts(campaignId) {
-    const p = this.pledgs.filter((pld) => pld.campaignId == campaignId);
-    let sum = 0;
-    p.forEach((p) => {
-      sum += Number(p.amount);
-    });
+    // const p = this.pledgs.filter((pld) => pld.campaignId == campaignId);
+    // let sum = 0;
+    // p.forEach((p) => {
+    //   sum += Number(p.amount);
+    // });
     return sum;
+    /**
+     * 1- Filter the pldges to return the same campigns id like the given one
+     * 2- and then summion all pledges .
+     * get all pledges
+     * -----------------------------------------------------------------------
+     * onTheApp
+     *
+     */
   }
   addPledge() {
     document.querySelectorAll(".pledgeBtn").forEach((btn) => {

@@ -6,7 +6,7 @@ class Pledges {
     this.fetchCompaigns();
   }
   fetchCompaigns() {
-    fetch("http://localhost:3000/compaigns")
+    fetch("http://localhost:3000/campaigns")
       .then((res) => res.json())
       .then((campaigns) => {
         this.campaigns = campaigns;
@@ -33,9 +33,7 @@ class Pledges {
   }
   getCampaignDetails(campaignId, amount) {
     const campaign = this.campaigns.find((cam) => cam.id == campaignId);
-    if (campaign) {
       this.displayPledge(campaign, amount);
-    }
   }
   displayPledge(campaign, amount) {
     const pledges_container = document.querySelector(".pledges_container");

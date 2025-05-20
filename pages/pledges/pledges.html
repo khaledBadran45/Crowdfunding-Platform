@@ -13,61 +13,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
     />
-    <style>
-      body {
-        background-color: #f5f7fa;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-
-      .pledge-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-radius: 10px;
-        overflow: hidden;
-        border: none;
-      }
-
-      .pledge-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      }
-
-      .campaign-image {
-        height: 120px;
-        object-fit: cover;
-      }
-
-      .status-badge {
-        font-size: 0.75rem;
-        padding: 0.35em 0.65em;
-      }
-
-      .progress {
-        height: 8px;
-        border-radius: 4px;
-      }
-
-      .nav-pills .nav-link.active {
-        background-color: var(--primary-color);
-      }
-
-      .nav-pills .nav-link {
-        color: #495057;
-        font-weight: 500;
-      }
-
-      .reward-badge {
-        background-color: var(--success-color);
-        color: white;
-      }
-
-      .empty-state {
-        padding: 3rem;
-        text-align: center;
-        background-color: white;
-        border-radius: 10px;
-      }
-    </style>
-    <link rel="stylesheet" href="./../../style/style.css" />
+    <link rel="stylesheet" href="./../pledges/pledges.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-white border-bottom">
@@ -91,8 +37,8 @@
             <li class="nav-item px-4">
               <a
                 id="pledges"
-                class="nav-link"
-                href="./pages/pledges/pledges.html"
+                class="active nav-link"
+                href="#"
                 >pledges</a
               >
             </li>
@@ -100,8 +46,13 @@
 
           <div class="d-flex w-50 align-items-center gap-2" role="search">
             <ul class="input-group d-felx justify-content-end auth">
-              
-              <li class="nav-item d-none list-unstyled " id="dashbord"><a class="nav-link btn btn-outline-secondary nav-btn-search px-2" href="./../campigner/compaigner-dash.html" >dashbord</a></li>
+              <li class="nav-item d-none list-unstyled" id="dashbord">
+                <a
+                  class="nav-link btn btn-outline-secondary nav-btn-search px-2"
+                  href="./../campigner/compaigner-dash.html"
+                  >dashbord</a
+                >
+              </li>
               <li class="nav-item list-unstyled">
                 <a
                   class="nav-link btn btn-outline-secondary nav-btn-search px-2"
@@ -130,7 +81,7 @@
       </div>
     </nav>
     <!-- From Uiverse.io by cosnametv -->
-     
+
     <div class="loader-wrapper d-none w-100 vh-100 top-0">
       <div class="loader mx-auto">
         <span></span>
@@ -148,11 +99,10 @@
           <h2 class="fw-bold">My Pledges</h2>
           <p class="text-muted">View and manage all your pledges</p>
         </div>
-        
       </div>
 
       <div class="">
-        <div class="row  justify-content-center">
+        <div class="row justify-content-center">
           <div class="col-10 me-md-auto col-lg-3">
             <div class="card">
               <div class="card-body pledge_stats"></div>

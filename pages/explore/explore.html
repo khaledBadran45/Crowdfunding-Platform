@@ -98,13 +98,13 @@
     <section id="Filtering">
       <div class="container p-2">
         <div class="searchSortWrapper row">
-          <div class="search col-12 col-md-6 p-2">
-            <label for="searchCamp" class="text-dark fw-semibold"
+          <div class="search col-12 col-md-8 p-2">
+            <label for="search" class="text-dark fw-semibold"
               >Search Campaign</label
             >
             <input
               class="form-control p-2"
-              id="searchCamp"
+              id="search"
               name="campaignName"
               type="text"
             />
@@ -113,15 +113,20 @@
             <label for="sort" class="text-dark fw-semibold"
               >sort By category</label
             >
-            <select id="sort" name="sort" id="sort" class="p-2 form-select">
+            <select
+              name="sort"
+              id="sortBycategorySelect"
+              class="p-2 form-select"
+            >
               <option value="all">All</option>
-              <option value="art">Art</option>
-              <option value="music">Music</option>
-              <option value="technology">Technology</option>
-              <option value="design">Design</option>
-              <option value="photography">Photography</option>
-              <option value="film">Film</option>
-              <option value="fashion">Fashion</option>
+              <option value="animals">Animals</option>
+              <option value="food">Food</option>
+              <option value="environment">Environment</option>
+              <option value="education">Education</option>
+              <option value="protectAnimals">protectAnimals</option>
+              <option value="savePeople">savePeople</option>
+              <option value="sports">Sports</option>
+              <option value="community">Community</option>
             </select>
           </div>
         </div>

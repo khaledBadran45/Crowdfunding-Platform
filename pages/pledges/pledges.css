@@ -1,42 +1,52 @@
+body {
+  background-color: #f5f7fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .pledge-card {
-  transition: transform 0.2s, box-shadow 0.2s;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+  border: none;
 }
 
 .pledge-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.object-fit-cover {
+.campaign-image {
+  height: 120px;
   object-fit: cover;
 }
 
-.nowrap {
-  white-space: nowrap;
-}
-.main-content {
-  flex: 1;
-  padding: 2rem 0;
+.status-badge {
+  font-size: 0.75rem;
+  padding: 0.35em 0.65em;
 }
 
-.pledge-stats-card {
-  height: 100%;
+.progress {
+  height: 8px;
+  border-radius: 4px;
 }
 
-@media (max-width: 767.98px) {
-  .pledge-stats-card {
-    margin-bottom: 1.5rem;
-  }
+.nav-pills .nav-link.active {
+  background-color: var(--primary-color);
+}
+
+.nav-pills .nav-link {
+  color: #495057;
+  font-weight: 500;
+}
+
+.reward-badge {
+  background-color: var(--success-color);
+  color: white;
 }
 
 .empty-state {
-  text-align: center;
   padding: 3rem;
-  background-color: #f8f9fa;
-  border-radius: 0.5rem;
-}
-
-footer {
-  margin-top: auto;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
 }
