@@ -4,6 +4,7 @@ class Pledges {
     this.user = JSON.parse(localStorage.getItem("token")) || "anonymous";
     // document.querySelector(".loader-wrapper").style.opacity = 1;
     this.fetchCompaigns();
+    this.pledges_container = document.querySelector(".pledges_container");
   }
   fetchCompaigns() {
     fetch("http://localhost:3000/campaigns")
@@ -11,7 +12,6 @@ class Pledges {
       .then((campaigns) => {
         this.campaigns = campaigns;
         this.fetchPledges();
-
         // document.querySelector(".loader-wrapper").style.opacity = 0;
       })
       .catch((err) => {
@@ -22,10 +22,16 @@ class Pledges {
     fetch("http://localhost:3000/pledges")
       .then((res) => res.json())
       .then((pledges) => {
-        this.displayPledgeState(pledges);
-        pledges.forEach((pld) => {
-          this.getCampaignDetails(pld.campaignId, pld.amount);
-        });
+        if (pledges.length) {
+          this.displayPledgeState(pledges);
+          pledges.forEach((pld) => {
+            this.getCampaignDetails(pld.campaignId, pld.amount);
+          });
+        } else {
+          document.querySelector(
+            ".pledges_container"
+          ).innerHTML = `<h2>You Never do any Pledges yet</h2>`;
+        }
       })
       .catch((err) => {
         console.error("Error fetching pledges:", err);
@@ -33,11 +39,12 @@ class Pledges {
   }
   getCampaignDetails(campaignId, amount) {
     const campaign = this.campaigns.find((cam) => cam.id == campaignId);
-      this.displayPledge(campaign, amount);
+
+    this.displayPledge(campaign, amount);
   }
   displayPledge(campaign, amount) {
-    const pledges_container = document.querySelector(".pledges_container");
-    pledges_container.innerHTML += `
+    if (campaign) {
+      document.querySelector(".pledges_container").innerHTML += `
      <div class="mb-4">
               <div class="card-body">
                 <div class="row">
@@ -63,7 +70,7 @@ class Pledges {
 
                             <div class="mb-2">
                               <span class="badge bg-primary">
-                                <i class="bi bi-currency-dollar me-1"></i>${amount}
+                                <i class="bi bi-currency-dollar p-0"></i>${amount}
                               </span>
                             </div>
 
@@ -105,8 +112,8 @@ class Pledges {
                     >Browse Campaigns</a
                   >
                 </div>
-              </div>
-            </div>`;
+              </div></div>`;
+    }
   }
   displayPledgeState(plds) {
     let totalAmount = 0;
@@ -115,9 +122,8 @@ class Pledges {
       totalAmount += parseInt(pld.amount);
     });
     // const am = pld.flatMap((x) => Number(x.amount));
-    document.querySelector(
-      ".pledge_stats"
-    ).innerHTML = `<h5 class="card-title">Pledge Stats</h5>
+    document.querySelector(".pledge_stats").innerHTML = `
+    <h5 class="card-title">Pledge Stats</h5>
                 <div class="d-flex justify-content-between mb-2">
                   <span class="text-muted">Total Pledges</span>
                   <span class="fw-bold">${plds.length}</span>
@@ -126,7 +132,8 @@ class Pledges {
                 <div class="d-flex justify-content-between mb-2">
                   <span class="text-muted">Total Amount</span>
                   <span class="fw-bold">${totalAmount}$</span>
-                </div>`;
+                </div>
+                `;
   }
 }
 new Pledges();

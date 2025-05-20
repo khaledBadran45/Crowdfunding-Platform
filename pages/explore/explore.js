@@ -1,6 +1,6 @@
 class Explore {
-  campaign ;
-  camp
+  campaign;
+  camp;
   user;
   campaignPledges = new Map();
   constructor() {
@@ -34,12 +34,15 @@ class Explore {
       .addEventListener("change", (e) => {
         this.SortByCat(e.target.value);
       });
-    document
-      .querySelector("#search")
-      .addEventListener("keyUp", this.searchCamp());
+    document.querySelector("#search").addEventListener("keydown", (e) => {
+      this.searchCamp(e);
+    });
   }
-  searchCamp(campChar) {
-    console.log(this.campaign)
+  searchCamp(e) {
+    const filteredCamp = this.camps.filter((cam) =>
+      cam.title.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    this.displayCampigns(filteredCamp);
   }
 
   SortByCat(categ) {
@@ -60,6 +63,7 @@ class Explore {
     fetch(`http://localhost:3000/campaigns?isApproved=true`)
       .then((res) => res.json())
       .then((campigns) => {
+        this.camps = campigns;
         this.displayCampigns(campigns);
       })
       .catch((x) => {

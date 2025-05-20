@@ -7,6 +7,54 @@
       "password": "66666666",
       "role": "backer",
       "status": "Active"
+    },
+    {
+      "id": "37e9",
+      "username": "khaled",
+      "email": "kbadwwran842@gmail.com",
+      "password": "66666666",
+      "role": "backer",
+      "status": "Active"
+    },
+    {
+      "id": "2e5a",
+      "username": "younes",
+      "email": "kbaertdran842@gmail.com",
+      "password": "123697",
+      "role": "campainer",
+      "status": "pending"
+    },
+    {
+      "id": "2005",
+      "username": "khaled",
+      "email": "iwqoadran842@gmail.com",
+      "password": "98752685",
+      "role": "campainer",
+      "status": "pending"
+    },
+    {
+      "id": "2159",
+      "username": "younes",
+      "email": "kbadran820@gmail.com",
+      "password": "98425445",
+      "role": "campainer",
+      "status": "pending"
+    },
+    {
+      "id": "46bb",
+      "username": "younes",
+      "email": "kbad746ran842@gmail.com",
+      "password": "98745632",
+      "role": "backer",
+      "status": "Active"
+    },
+    {
+      "id": "8daf",
+      "username": "younes",
+      "email": "kbadranwq42@gmail.com",
+      "password": "99999999999",
+      "role": "backer",
+      "status": "Active"
     }
   ],
   "campaigns": [
@@ -309,43 +357,133 @@
         "https://images.unsplash.com/photo-1526779259212-939e64788e3c?w=800"
       ],
       "isApproved": true
+    },
+    {
+      "id": "animals1",
+      "title": "Wildlife Rescue Fund",
+      "category": "animals",
+      "description": "Emergency care for animals affected by wildfires",
+      "goal": 15000,
+      "deadline": "2025-09-30",
+      "images": [
+        "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=800"
+      ],
+      "isApproved": true
+    },
+    {
+      "id": "animals2",
+      "title": "No-Kill Shelter Expansion",
+      "category": "animals",
+      "description": "Building new facilities for stray dogs and cats",
+      "goal": 25000,
+      "deadline": "2025-10-15",
+      "images": [
+        "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=800"
+      ],
+      "isApproved": true
+    },
+    {
+      "id": "food1",
+      "title": "Community Food Bank",
+      "category": "food",
+      "description": "Weekly groceries for 500+ families in need",
+      "goal": 12000,
+      "deadline": "2025-08-20",
+      "images": [
+        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800"
+      ],
+      "isApproved": true
+    },
+    {
+      "id": "env1",
+      "title": "Urban Tree Planting",
+      "category": "environment",
+      "description": "Planting 1000 trees in city neighborhoods",
+      "goal": 8000,
+      "deadline": "2025-07-15",
+      "images": [
+        "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800"
+      ],
+      "isApproved": true
+    },
+    {
+      "id": "edu1",
+      "title": "STEM Scholarships",
+      "category": "education",
+      "description": "Funding for underprivileged students in science fields",
+      "goal": 30000,
+      "deadline": "2025-12-01",
+      "images": [
+        "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800"
+      ],
+      "isApproved": true
+    },
+    {
+      "id": "protect1",
+      "title": "Anti-Poaching Patrols",
+      "category": "protectAnimals",
+      "description": "Protecting endangered rhinos in Africa",
+      "goal": 35000,
+      "deadline": "2025-11-20",
+      "images": [
+        "https://images.unsplash.com/photo-1550358864-518f256c532c?w=800"
+      ],
+      "isApproved": true
+    },
+    {
+      "id": "save1",
+      "title": "Disaster Relief Fund",
+      "category": "savePeople",
+      "description": "Emergency aid for flood victims",
+      "goal": 50000,
+      "deadline": "2025-06-10",
+      "images": [
+        "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?w=800"
+      ],
+      "isApproved": true
+    },
+    {
+      "id": "sports1",
+      "title": "Youth Basketball League",
+      "category": "sports",
+      "description": "Free training and equipment for kids",
+      "goal": 7500,
+      "deadline": "2025-09-01",
+      "images": [
+        "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800"
+      ],
+      "isApproved": true
+    },
+    {
+      "id": "comm1",
+      "title": "Senior Center Renovation",
+      "category": "community",
+      "description": "Upgrading facilities for elderly community members",
+      "goal": 20000,
+      "deadline": "2025-10-30",
+      "images": [
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=800"
+      ],
+      "isApproved": true
     }
   ],
   "pledges": [
     {
-      "id": "0c2e",
-      "amount": "98",
-      "campaignId": "aadd",
-      "userId": "0921"
-    },
-    {
-      "id": "a7da",
-      "amount": "65",
-      "campaignId": "aadd",
-      "userId": "0921"
-    },
-    {
-      "id": "282a",
-      "amount": "98",
-      "campaignId": "aadd",
-      "userId": "0921"
-    },
-    {
-      "id": "ba76",
+      "id": "5b25",
       "amount": "20",
-      "campaignId": "aadd",
+      "campaignId": "sports1",
       "userId": "0921"
     },
     {
-      "id": "90f4",
-      "amount": 10,
-      "campaignId": "aadd1",
+      "id": "8708",
+      "amount": "65",
+      "campaignId": "sports1",
       "userId": "0921"
     },
     {
-      "id": "877b",
-      "amount": 20,
-      "campaignId": "aadd1",
+      "id": "963e",
+      "amount": "98",
+      "campaignId": "sports1",
       "userId": "0921"
     }
   ]

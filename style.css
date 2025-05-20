@@ -234,7 +234,6 @@ body {
 }
 .btn-usage-primary:hover {
   background-color: var(--color-green-90);
-
   color: var(--color-green-1);
 }
 .footer h6 {

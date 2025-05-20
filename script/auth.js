@@ -1,7 +1,6 @@
 const isLoggedIn = JSON.parse(localStorage.getItem("token")) || false;
 isLoggedIn && handleUserLogin(isLoggedIn);
 const popUp = document.querySelector(".popUp");
-
 // const signUpForm =;
 document.querySelector(".auth").addEventListener("click", function (e) {
   const elementId = e.target.id;
@@ -21,7 +20,7 @@ function displaySignUP() {
    <div class="d-flex justify-content-between align-items-center">
     <h2>sign up</h2>
     <button type='button' class="btn-close"></button> 
-    </div> 
+    </div>
     <div class="flex-column">
     <label>username</label> </div>
     <div class="inputForm"> <i class="fa-regular fa-user"></i>
@@ -96,7 +95,6 @@ function displayLoign() {
 <button type="submit" class="button-submit">Sign In</button>
 </form>`;
 }
-
 function setupValidation() {
   const usernameInput = document.querySelector('input[name="username"]');
   const emailInput = document.querySelector('input[name="email"]');
@@ -199,7 +197,10 @@ function setupValidation() {
           };
           if (role == "backer") {
             user.status = "Active";
+          } else {
+            user.status = "pending";
           }
+          console.log(user);
 
           userSignUp(user.email).then((isTrue) => {
             if (isTrue) {
@@ -233,7 +234,7 @@ function setupValidation() {
             if (state) {
               getUserDetails(email);
             } else {
-              alert("this mail dosent exist");
+              alert("username or password is not correct");
             }
           });
 
@@ -311,12 +312,11 @@ function handleUserLogin(user) {
     document.querySelector("#sign_in").classList.add("d-none"),
     document.querySelector("#sign_up").classList.add("d-none");
   if (user.role == "backer") {
-    document.querySelector("#pledges").classList.add("d-block");
+    document.querySelector("#pledges").classList.remove("d-none");
   } else if (user.role == "campaigner") {
     document.querySelector("#dashbord").classList.remove("d-none");
   }
 }
-
 document.querySelector("#log_out").addEventListener("click", (e) => {
   handlerUserLogout();
 });
