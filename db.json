@@ -1,19 +1,11 @@
 {
   "users": [
     {
-      "id": "8f02",
-      "username": "Hassan",
-      "email": "Hassan@gmail.com",
-      "password": "123321U",
+      "id": "0921",
+      "username": "khaled",
+      "email": "kbadran842@gmail.com",
+      "password": "66666666",
       "role": "backer",
-      "status": "Active"
-    },
-    {
-      "id": "d785",
-      "username": "younes",
-      "email": "kbadr78an842@gmail.com",
-      "password": "5656565",
-      "role": "compaigner",
       "status": "Active"
     }
   ],
@@ -32,154 +24,16 @@
   ],
   "pledges": [
     {
-      "id": "1f45",
-      "amount": "894",
-      "campaignId": "aadd",
-      "userId": "ee40"
-    },
-    {
-      "id": "1302",
+      "id": "0c2e",
       "amount": "98",
-      "campaignId": null,
-      "userId": "ee40"
+      "campaignId": "aadd",
+      "userId": "0921"
     },
     {
-      "id": "0d5a",
+      "id": "a7da",
       "amount": "65",
       "campaignId": "aadd",
-      "userId": null
-    },
-    {
-      "id": "079e",
-      "amount": "98",
-      "campaignId": "aadd",
-      "userId": null
-    },
-    {
-      "id": "8d10",
-      "amount": 65,
-      "campaignId": null,
-      "userId": null
-    },
-    {
-      "id": "15b4",
-      "amount": 54,
-      "campaignId": "aadd",
-      "userId": null
-    },
-    {
-      "id": "9f79",
-      "amount": 98,
-      "campaignId": "aadd",
-      "userId": null
-    },
-    {
-      "id": "56d1",
-      "amount": 98,
-      "campaignId": "aadd",
-      "userId": null
-    },
-    {
-      "id": "8430",
-      "amount": 7,
-      "campaignId": "aadd",
-      "userId": null
-    },
-    {
-      "id": "eee6",
-      "amount": 78,
-      "campaignId": "aadd",
-      "userId": null
-    },
-    {
-      "id": "5069",
-      "amount": "965",
-      "campaignId": "aadd",
-      "userId": null
-    },
-    {
-      "id": "5528",
-      "amount": "98",
-      "campaignId": "aadd",
-      "userId": null
-    },
-    {
-      "id": "2ef3",
-      "amount": "98",
-      "campaignId": "aadd",
-      "userId": null
-    },
-    {
-      "id": "fcd5",
-      "amount": 987,
-      "campaignId": null,
-      "userId": null
-    },
-    {
-      "id": "a275",
-      "amount": 87,
-      "campaignId": "aadd",
-      "userId": null
-    },
-    {
-      "id": "fe92",
-      "amount": "10",
-      "campaignId": "aadd",
-      "userId": null
-    },
-    {
-      "id": "d4d1",
-      "amount": "6445",
-      "campaignId": null,
-      "userId": null
-    },
-    {
-      "id": "cac3",
-      "amount": "98",
-      "campaignId": "aadd",
-      "userId": null
-    },
-    {
-      "id": "c1f6",
-      "amount": 65,
-      "campaignId": null,
-      "userId": null
-    },
-    {
-      "id": "d6f1",
-      "amount": "54",
-      "campaignId": null,
-      "userId": null
-    },
-    {
-      "id": "98b1",
-      "amount": "848",
-      "campaignId": "aadd",
-      "userId": null
-    },
-    {
-      "id": "0b52",
-      "amount": "5",
-      "campaignId": "aadd",
-      "userId": null
-    },
-    {
-      "id": "2107",
-      "amount": "98",
-      "campaignId": null,
-      "userId": null
-    },
-    {
-      "id": "77e3",
-      "amount": "21",
-      "campaignId": null,
-      "userId": null
-    },
-    {
-      "id": "aab3",
-      "amount": "25145",
-      "campaignId": null,
-      "userId": null
+      "userId": "0921"
     }
   ]
 }

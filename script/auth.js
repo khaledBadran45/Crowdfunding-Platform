@@ -1,5 +1,5 @@
 const isLoggedIn = JSON.parse(localStorage.getItem("token")) || false;
-isLoggedIn && handleUserLoign();
+isLoggedIn && handleUserLogin(isLoggedIn);
 const popUp = document.querySelector(".popUp");
 
 // const signUpForm =;
@@ -48,7 +48,7 @@ function displaySignUP() {
 <select name="role" class="input">
   <option value="">Select a role</option>
   <option value="backer">backer</option>
-  <option value="campainer">campainer</option>
+  <option value="campainer">campaigner</option>
 </select>
 </div>
 <div class="roleMsg Error_msg">Please select a role</div>
@@ -196,8 +196,10 @@ function setupValidation() {
             email: email,
             password: password,
             role: role,
-            isActive: true,
           };
+          if (role == "backer") {
+            user.status = "Active";
+          }
 
           userSignUp(user.email).then((isTrue) => {
             if (isTrue) {
@@ -246,12 +248,11 @@ function setupValidation() {
     fetch(`http://localhost:3000/users?email=${email}`)
       .then((res) => {
         if (res) {
-          console.log(res);
           return res.json();
         }
       })
       .then((res) => {
-        handleUserLoign(res[0]);
+        handleUserLogin(res[0]);
       });
   }
 
@@ -302,17 +303,16 @@ function addUser(user) {
       console.error("Error adding user:", error);
     });
 }
-function handleUserLoign(user) {
+function handleUserLogin(user) {
   if (user) {
     localStorage.setItem("token", JSON.stringify(user));
   }
   document.querySelector("#log_out").classList.remove("d-none"),
     document.querySelector("#sign_in").classList.add("d-none"),
     document.querySelector("#sign_up").classList.add("d-none");
-  if (isLoggedIn.role == "backer") {
+  if (user.role == "backer") {
     document.querySelector("#pledges").classList.add("d-block");
-  } else if (isLoggedIn.role == "campainer") {
-    console.log("dsksz");
+  } else if (user.role == "campaigner") {
     document.querySelector("#dashbord").classList.remove("d-none");
   }
 }
@@ -325,6 +325,6 @@ function handlerUserLogout() {
   document.querySelector("#log_out").classList.add("d-none"),
     document.querySelector("#sign_in").classList.remove("d-none"),
     document.querySelector("#sign_up").classList.remove("d-none");
-  document.querySelector("#pledges").classList.add("d-none");
   document.querySelector("#dashbord").classList.add("d-none");
+  document.querySelector("#pledges").classList.add("d-none");
 }

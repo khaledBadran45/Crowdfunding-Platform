@@ -58,6 +58,9 @@
   height: 100%;
   padding: 0.1em;
 }
+i{
+  padding: 1em !important;
+}
 
 .input::placeholder {
   padding: 0.6em;

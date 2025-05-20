@@ -76,6 +76,7 @@ document.getElementById("users-table").addEventListener("click", function (e) {
       handlerUserLogout();
     });
   }
+  handlerUserLogout();
   updateCounts();
 });
 

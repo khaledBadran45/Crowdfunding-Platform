@@ -94,7 +94,7 @@ class Explore {
                   }</span>
                 </div>
                 ${
-                  this.user.role == "backer"
+                  this.user.role == "backer" && this.user.status == "Active"
                     ? `<div class="text-end">
                     <button
                       data-comp='${JSON.stringify(comp)}'

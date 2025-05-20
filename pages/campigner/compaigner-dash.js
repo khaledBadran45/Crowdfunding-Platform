@@ -222,13 +222,36 @@ class Campaigner {
   compaignImages = [];
   #compaignRewards = [];
   constructor() {
+    this.user = JSON.parse(localStorage.getItem("token"));
+    this.userStatus();
+
     // this.setupTheUpdateCampaigns();
-    this.SetupTheCreationOfTheCompaign();
     // setup Upadtion copmaigns
     // patch the compaigns to the input
     // get the input then attach the compaigns
     // Setup The Creation OF the Compaign
   }
+  userStatus() {
+    console.log("wdwlkslk");
+    fetch(`http://localhost:3000/users/${this.user.id}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        console.log(res);
+        if (res.role == "campaigner" && res.status == "Active") {
+          this.SetupTheCreationOfTheCompaign();
+        } else {
+          document.querySelector(
+            ".mainContent"
+          ).innerHTML = `<h2 class="fw-semibold text-capitalized text-muted"> Sorry , You Are Banned By the Admin !! </h2>`;
+        }
+      })
+      .catch((x) => {
+        console.log(x);
+      });
+  }
+  
   SetupTheCreationOfTheCompaign() {
     this.#compaignRewards = [];
     // console.log(this.#compaignRewards);
@@ -238,7 +261,7 @@ class Campaigner {
     this.#createCompaignForm = document.querySelector("form");
     // this.getListOfimagesinBase64();
     this.#createCompaignForm.addEventListener("submit", (e) => {
-      this.createCompaign(e); 
+      this.createCompaign(e);
     });
     document
       .querySelector('input[name="addReward"]')

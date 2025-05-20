@@ -33,7 +33,9 @@ class Pledges {
   }
   getCampaignDetails(campaignId, amount) {
     const campaign = this.campaigns.find((cam) => cam.id == campaignId);
-    this.displayPledge(campaign, amount);
+    if (campaign) {
+      this.displayPledge(campaign, amount);
+    }
   }
   displayPledge(campaign, amount) {
     const pledges_container = document.querySelector(".pledges_container");
