@@ -28,6 +28,10 @@ class Explore {
           });
       }
     });
+    document.querySelector('input[name="search"]')
+      .addEventListener("keydown", (e) => {
+        console.log(e.target);
+      });
   }
   fetchCompaigns() {
     fetch(`http://localhost:3000/compaigns`)
@@ -96,8 +100,8 @@ class Explore {
                   }</span>
                 </div>
                 ${
-                  this.user.role == "backer" ?
-                  `<div class="text-end">
+                  this.user.role == "backer"
+                    ? `<div class="text-end">
                     <button
                       data-comp='${JSON.stringify(comp)}'
                       class="pledgeBtn bg-secondary border-0 rounded-1 px-3 text-white"
@@ -106,7 +110,8 @@ class Explore {
                     >
                       Pledge
                     </button>
-                  </div>`:``
+                  </div>`
+                    : ``
                 }
               </div>
             </div>
@@ -124,5 +129,8 @@ class Explore {
       });
     });
   }
+  // search() {
+
+  // }
 }
 new Explore();

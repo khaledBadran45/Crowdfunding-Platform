@@ -19,6 +19,8 @@ fetch("http://localhost:3000/users")
       `;
         usersTableBody.appendChild(row);
       });
+    }else{
+      console.log('there iows');
     }
     updateCounts();
   });

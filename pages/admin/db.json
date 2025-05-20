@@ -1,12 +1,26 @@
 {
   "users": [
     {
+      "id": "1",
+      "username": "sara",
+      "email": "sara@gmail.com",
+      "role": "backer",
+      "status": "Active"
+    },
+    {
       "id": "2",
       "username": "ahmed",
       "email": "ahmed@exagmail.com",
-      "role": "campainer",
-      "status": "Active"
+    "role": "campainer",
+      "status": "Banned"
     }
   ],
-  "campaigns": []
+  "campaigns": [
+    {
+      "id": "2",
+      "title": "Campaign 2",
+      "description": "Desc 2",
+      "isApproved": false
+    }
+  ]
 }

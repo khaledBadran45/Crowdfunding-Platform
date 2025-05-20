@@ -1,7 +1,7 @@
 const isLoggedIn = JSON.parse(localStorage.getItem("token")) || false;
 isLoggedIn && handleUserLoign();
 const popUp = document.querySelector(".popUp");
-document.querySelector(".pledgesLink").style.display = "none";
+
 // const signUpForm =;
 document.querySelector(".auth").addEventListener("click", function (e) {
   const elementId = e.target.id;
@@ -48,7 +48,7 @@ function displaySignUP() {
 <select name="role" class="input">
   <option value="">Select a role</option>
   <option value="backer">backer</option>
-  <option value="compaigner">compaigner</option>
+  <option value="campainer">campainer</option>
 </select>
 </div>
 <div class="roleMsg Error_msg">Please select a role</div>
@@ -310,8 +310,10 @@ function handleUserLoign(user) {
     document.querySelector("#sign_in").classList.add("d-none"),
     document.querySelector("#sign_up").classList.add("d-none");
   if (isLoggedIn.role == "backer") {
-    document.querySelector("#pledges").style.display = "block";
-    console.log("called", document.querySelector(".pledgesLink").style.display);
+    document.querySelector("#pledges").classList.add("d-block");
+  } else if (isLoggedIn.role == "campainer") {
+    console.log("dsksz");
+    document.querySelector("#dashbord").classList.remove("d-none");
   }
 }
 
@@ -320,4 +322,7 @@ document.querySelector("#log_out").addEventListener("click", (e) => {
   document.querySelector("#log_out").classList.add("d-none"),
     document.querySelector("#sign_in").classList.remove("d-none"),
     document.querySelector("#sign_up").classList.remove("d-none");
+  document.querySelector("#pledges").classList.add("d-none");
+
+  document.querySelector("#dashbord").classList.add("d-none");
 });

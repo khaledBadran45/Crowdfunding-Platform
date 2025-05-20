@@ -23,6 +23,14 @@
       "password": "5656565",
       "role": "compaigner",
       "isActive": true
+    },
+    {
+      "id": "f37e",
+      "username": "mona",
+      "email": "mona9@gmail.com",
+      "password": "987p987",
+      "role": "campainer",
+      "isActive": true
     }
   ],
   "compaigns": [
