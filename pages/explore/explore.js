@@ -44,7 +44,6 @@ class Explore {
     );
     this.displayCampigns(filteredCamp);
   }
-
   SortByCat(categ) {
     const url =
       categ === "all"
@@ -59,7 +58,6 @@ class Explore {
         .catch((x) => {});
   }
   fetchCompaigns() {
-    console.log("works");
     fetch(`http://localhost:3000/campaigns?isApproved=true`)
       .then((res) => res.json())
       .then((campigns) => {
@@ -83,11 +81,11 @@ class Explore {
       });
   }
   displayCampigns(campigns) {
-    console.log(campigns);
     document.querySelector(".ExpoloreMoreComp").innerHTML = "";
-    campigns.forEach((comp) => {
-      // display logic here
-      document.querySelector(".ExpoloreMoreComp").innerHTML += `
+    if (campigns.length) {
+      campigns.forEach((comp) => {
+        // display logic here
+        document.querySelector(".ExpoloreMoreComp").innerHTML += `
       <div class="col-lg-3 col-md-6 col-sm-10 p-2">
         <div class="d-flex justify-content-center">
           <div class="card shadow-sm position-relative overflow-hidden">
@@ -108,10 +106,8 @@ class Explore {
               <p class="text-muted fw-semibold fs-6">${comp.description}</p>
               <div class="p-2">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                  <h6 class="text-card fs-5">45$</h6>
-                  <span class="text-card fs-6 fw-semibold">of ${
-                    comp.goal
-                  } target</span>
+                  <h6 class="text-card fs-5"></h6>
+                  <span class="text-card fs-6 fw-semibold"> ${comp.goal}</span>
                 </div>
                 <div class="d-flex justify-content-between align-items-center w-100">
                   <h6 class="text-card fs-5">deadline</h6>
@@ -138,16 +134,23 @@ class Explore {
           </div>
         </div>
       </div>`;
-    });
+      });
+    } else {
+      document.querySelector(
+        ".ExpoloreMoreComp"
+      ).innerHTML += `there is no campagins to display`;
+    }
     this.addPledge();
   }
   getTotalPledgesAmounts(campaignId) {
+    // loop campigns to get the campign id
     // const p = this.pledgs.filter((pld) => pld.campaignId == campaignId);
+    // console.log(p);
     // let sum = 0;
     // p.forEach((p) => {
     //   sum += Number(p.amount);
     // });
-    return sum;
+    // return sum;
     /**
      * 1- Filter the pldges to return the same campigns id like the given one
      * 2- and then summion all pledges .

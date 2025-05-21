@@ -28,7 +28,8 @@
       "images": [
         "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "save1",
@@ -40,7 +41,8 @@
       "images": [
         "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "save2",
@@ -52,7 +54,8 @@
       "images": [
         "https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "save3",
@@ -76,7 +79,8 @@
       "images": [
         "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ba?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "save5",
@@ -88,7 +92,8 @@
       "images": [
         "https://images.unsplash.com/photo-1591213958466-efb72c503e72?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "animals1",
@@ -100,7 +105,8 @@
       "images": [
         "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "animals2",
@@ -124,7 +130,8 @@
       "images": [
         "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "animals4",
@@ -136,7 +143,8 @@
       "images": [
         "https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "animals5",
@@ -148,7 +156,8 @@
       "images": [
         "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "patriotism1",
@@ -160,7 +169,8 @@
       "images": [
         "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "patriotism2",
@@ -184,7 +194,8 @@
       "images": [
         "https://images.unsplash.com/photo-1601584115197-04ecc0da31e7?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "patriotism4",
@@ -196,7 +207,8 @@
       "images": [
         "https://images.unsplash.com/photo-1573497491208-6da53d56e27e?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "patriotism1",
@@ -208,7 +220,8 @@
       "images": [
         "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "patriotism2",
@@ -232,7 +245,8 @@
       "images": [
         "https://images.unsplash.com/photo-1601584115197-04ecc0da31e7?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "patriotism4",
@@ -244,7 +258,8 @@
       "images": [
         "https://images.unsplash.com/photo-1573497491208-6da53d56e27e?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "patriotism5",
@@ -256,7 +271,8 @@
       "images": [
         "https://images.unsplash.com/photo-1526779259212-939e64788e3c?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "animals1",
@@ -268,7 +284,8 @@
       "images": [
         "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "animals2",
@@ -280,7 +297,8 @@
       "images": [
         "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "food1",
@@ -292,7 +310,8 @@
       "images": [
         "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "env1",
@@ -304,7 +323,8 @@
       "images": [
         "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "edu1",
@@ -316,7 +336,8 @@
       "images": [
         "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "protect1",
@@ -328,7 +349,8 @@
       "images": [
         "https://images.unsplash.com/photo-1550358864-518f256c532c?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "save1",
@@ -340,7 +362,8 @@
       "images": [
         "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "sports1",
@@ -352,7 +375,8 @@
       "images": [
         "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     },
     {
       "id": "comm1",
@@ -364,27 +388,46 @@
       "images": [
         "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=800"
       ],
-      "isApproved": true
+      "isApproved": true,
+      "amount": 0
     }
   ],
   "pledges": [
     {
-      "id": "5b25",
+      "id": "6933",
+      "amount": "10",
+      "campaignId": "save1",
+      "userId": "46bb"
+    },
+    {
+      "id": "3542",
+      "amount": "52",
+      "campaignId": "save1",
+      "userId": "46bb"
+    },
+    {
+      "id": "1175",
+      "amount": "35",
+      "campaignId": "protect1",
+      "userId": "46bb"
+    },
+    {
+      "id": "d82e",
       "amount": "20",
-      "campaignId": null,
-      "userId": null
+      "campaignId": "sports5",
+      "userId": "46bb"
     },
     {
-      "id": "8708",
-      "amount": "65",
-      "campaignId": null,
-      "userId": null
+      "id": "08ed",
+      "amount": "20",
+      "campaignId": "sports5",
+      "userId": "46bb"
     },
     {
-      "id": "963e",
-      "amount": "98",
-      "campaignId": null,
-      "userId": null
+      "id": "504c",
+      "amount": "20",
+      "campaignId": "sports5",
+      "userId": "46bb"
     }
   ]
 }

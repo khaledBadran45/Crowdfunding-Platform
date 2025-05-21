@@ -1,14 +1,9 @@
 // #createCompaignForm =
 class Campaigner {
   #createCompaignPage = `
- <h2 class="text-capitalize text-dark-emphasis">
+ <h2 class="text-capitalize text-dark-emphasis text-center">
             create new compaign
           </h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
-            mollitia necessitatibus quidem ullam sit deserunt aliquid
-            perferendis quasi aliquam velit.
-          </p>
  <form>
           <div class="row">
             <div class="col-md-8 mx-auto">
@@ -71,6 +66,28 @@ class Campaigner {
                 <div class="mb-3">
                   <label for="Goal">Goal</label>
                   <input type="text" name="Goal" class="form-control" id="Goal" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <div class="mb-3">
+                  <label for="categorySelect">select category</label>
+                  <select
+              name="categorySelect"
+              id="categorySelect"
+              class="p-2 form-select"
+            >
+              <option value="all">All</option>
+              <option value="animals">Animals</option>
+              <option value="food">Food</option>
+              <option value="environment">Environment</option>
+              <option value="education">Education</option>
+              <option value="protectAnimals">protectAnimals</option>
+              <option value="savePeople">savePeople</option>
+              <option value="sports">Sports</option>
+              <option value="community">Community</option>
+            </select>
                 </div>
               </div>
             </div>
@@ -204,19 +221,18 @@ class Campaigner {
   #compaignNewsUpdate = "";
   #createCompaignForm;
   compaignImages = [];
-  #compaignRewards = [];
   constructor() {
     if (!localStorage.getItem("token")) {
       window.location.href = "./../../index.html";
     }
     this.user = JSON.parse(localStorage.getItem("token"));
     this.userStatus();
-
-    // this.setupTheUpdateCampaigns();
-    // setup Upadtion copmaigns
-    // patch the compaigns to the input
-    // get the input then attach the compaigns
-    // Setup The Creation OF the Compaign
+    this.SetupTheCreationOfTheCompaign();
+    document
+      .querySelector("#categorySelect")
+      .addEventListener("change", (e) => {
+        this.category = e.target.value;
+      });
   }
   userStatus() {
     console.log("wdwlkslk");
@@ -238,10 +254,7 @@ class Campaigner {
         console.log(x);
       });
   }
-
   SetupTheCreationOfTheCompaign() {
-    this.#compaignRewards = [];
-    // console.log(this.#compaignRewards);
     Campaigner.compaignImages = [];
     // setUp Creation Page
     document.querySelector(".mainContent").innerHTML = this.#createCompaignPage;
@@ -250,11 +263,6 @@ class Campaigner {
     this.#createCompaignForm.addEventListener("submit", (e) => {
       this.createCompaign(e);
     });
-    document
-      .querySelector('input[name="addReward"]')
-      .addEventListener("click", () => {
-        this.addReward();
-      });
     this.getListOfimagesinBase64();
   }
   setupTheUpdateCampaigns() {
@@ -269,7 +277,6 @@ class Campaigner {
       }
     });
   }
-
   patchTheCampaigns(campaign) {
     const titleInput = document.querySelector('input[name="title"]');
     titleInput.value = campaign.title;
@@ -316,17 +323,6 @@ class Campaigner {
           });
       });
   }
-
-  addReward() {
-    const Reward_Title = document
-      .querySelector('input[name="Reward_Title"]')
-      .value.trim();
-    const Limit = document.querySelector('input[name="limit"]').value.trim();
-    // why this compoins rewards is return undefined
-    this.#compaignRewards.push({ reward_Title: Reward_Title, limit: Limit });
-    console.log(this.#compaignRewards);
-    alert("you add 1 reward to the current compaign");
-  }
   getImages() {
     return Campaigner.compaignImages;
   }
@@ -338,8 +334,8 @@ class Campaigner {
       document.querySelector("input[name='Goal']").value.trim(),
       document.querySelector("input[name='Deadline']").value.trim(),
       "The campign just starting now",
-      this.#compaignRewards,
-      this.getImages()
+      this.getImages(),
+      this.category
     );
     fetch("http://localhost:3000/compaigns", {
       method: "POST",
@@ -397,7 +393,6 @@ class Campaigner {
         });
       });
   }
-
   displayCompaigns(listOfCompaign) {
     listOfCompaign.forEach((comp) => {
       document.querySelector(
@@ -471,14 +466,14 @@ class Campaigner {
 
 new Campaigner();
 class compaign {
-  constructor(title, description, goal, deadline, lastNews, rewards, images) {
+  constructor(title, description, goal, deadline, images, category, userId) {
     this.title = title;
     this.description = description;
     this.goal = goal;
     this.deadline = deadline;
-    this.rewards = rewards;
     this.images = images;
+    this.category = category;
+    this.userId = userId;
     this.isApproved = false;
-    lastNews = lastNews;
   }
 }

@@ -327,4 +327,5 @@ function handlerUserLogout() {
     document.querySelector("#sign_up").classList.remove("d-none");
   document.querySelector("#dashbord").classList.add("d-none");
   document.querySelector("#pledges").classList.add("d-none");
+  window.location.reload();
 }

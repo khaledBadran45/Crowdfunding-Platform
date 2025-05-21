@@ -56,7 +56,7 @@
             </li>
           </ul>
 
-          <div class="d-flex w-50 align-items-center gap-2" role="search">
+          <div class="d-flex w-50 alipgn-items-center gap-2" role="search">
             <ul class="input-group d-felx justify-content-end auth">
               <li class="nav-item d-none list-unstyled" id="dashbord">
                 <a
@@ -114,7 +114,7 @@
               >sort By category</label
             >
             <select
-              name="sort"
+              name="select"
               id="sortBycategorySelect"
               class="p-2 form-select"
             >
@@ -134,39 +134,55 @@
         <div
           class="ExpoloreMoreComp row justify-content-start align-items-center"
         ></div>
-        <div class="modal fade" id="pledgeModal">
-          <div class="modal-dialog">
+        <div
+          class="modal fade"
+          id="pledgeModal"
+          tabindex="-1"
+          aria-labelledby="pledgeModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-              <div class="modal-header d-flex justify-content-between p-2">
+              <div
+                class="modal-header d-flex justify-content-between align-items-center p-3"
+              >
                 <h5 class="modal-title" id="pledgeModalLabel">Make a Pledge</h5>
-                <button type="button" class="btn-close"></button>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
               </div>
               <div class="modal-body">
-                <form class="p-2" id="pledgeForm">
-                  <div class="pt-3 pb-4">
+                <form class="p-3" id="pledgeForm">
+                  <div class="mb-3">
                     <label for="pledgeAmount" class="form-label"
                       >Pledge Amount</label
                     >
                     <input
                       type="number"
-                      class="form-control"
+                      class="form-control p-2"
                       id="pledgeAmount"
                       name="amount"
                       min="1"
                       required
                     />
                     <div class="invalid-feedback">
-                      Minmum amount for a Pledge is 1 $ , can't be empty
+                      Please enter a valid amount (minimum $1).
                     </div>
                   </div>
-                  <div class="modal-footer p-2">
-                    <button type="button" class="btn mx-1 px-2 btn-secondary">
+                  <div class="modal-footer justify-content-between p-3">
+                    <button
+                      type="button"
+                      class="text-white bg-danger border-0 rounded-3 px-2 py-1"
+                      data-bs-dismiss="modal"
+                    >
                       Close
                     </button>
                     <button
                       type="submit"
-                      class="btn px-2 btn-primary"
-                      id="submitPledge"
+                      class="text-white bg-danger border-0 rounded-3 px-2 py-1"
                     >
                       Submit Pledge
                     </button>
